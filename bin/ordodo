@@ -1,0 +1,5 @@
+#!/bin/env ruby
+
+require 'ordodo'
+
+Ordodo::CLI.run!(ARGV)
