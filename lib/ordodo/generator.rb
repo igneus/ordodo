@@ -6,11 +6,24 @@ module Ordodo
     end
 
     def call(year=nil)
-      year ||= upcoming_year
-      puts "Generating ordo for liturgical year #{year}"
+      I18n.with_locale(@config.locale) do
+        generate year
+      end
     end
 
     private
+
+    def generate(year)
+      year ||= upcoming_year
+      puts "Generating ordo for liturgical year #{year}"
+
+      calendar = @config.create_tree_calendar(year)
+      calendar.each_day do |day_tree|
+        day = TreeReducer.reduce day_tree
+        puts day.date
+        day.celebrations.each {|c| puts c.title }
+      end
+    end
 
     def upcoming_year
       today = Date.today
