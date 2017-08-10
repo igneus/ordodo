@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ordodo locale="en">
+  <meta>
+    <title>General Roman Calendar</title>
+    <description>
+      The easiest case: generating an ordo for a single calendar.
+    </description>
+  </meta>
+
+  <temporale>
+    <!--
+        Transfer of Epiphany, Ascension and Corpus Christi
+        is optional.
+    -->
+    <options>
+      <option type="transfer_on_sunday" feast="Epiphany" apply="optional" />
+      <option type="transfer_on_sunday" feast="Ascension" apply="optional" />
+      <option type="transfer_on_sunday" feast="Corpus Christi" apply="optional" />
+    </options>
+  </temporale>
+
+  <!--
+      Structure of sanctorale data.
+      The church organisation in Czech Republic is relatively
+      simple: there are only two provinces, each having
+      a handful of dioceses. Since the liturgical reform of Vatican II
+      a great part of the liturgical calendar is common to all of them.
+  -->
+  <calendars>
+    <calendar title="General Roman Calendar">
+      <artefacts>
+        <artefact type="packaged" ref="universal-en" />
+      </artefacts>
+    </calendar>
+  </calendars>
+</ordodo>
