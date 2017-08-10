@@ -8,18 +8,6 @@
     </description>
   </meta>
 
-  <temporale>
-    <!--
-        Transfer of Epiphany, Ascension and Corpus Christi
-        is optional.
-    -->
-    <options>
-      <option type="transfer_on_sunday" feast="Epiphany" apply="optional" />
-      <option type="transfer_on_sunday" feast="Ascension" apply="optional" />
-      <option type="transfer_on_sunday" feast="Corpus Christi" apply="optional" />
-    </options>
-  </temporale>
-
   <!--
       Structure of sanctorale data.
       The church organisation in Czech Republic is relatively
@@ -29,6 +17,18 @@
   -->
   <calendars>
     <calendar title="General Roman Calendar">
+      <temporale>
+        <!--
+            Transfer of Epiphany, Ascension and Corpus Christi
+            is optional.
+        -->
+        <options>
+          <option type="transfer_on_sunday" feast="Epiphany" apply="optional" />
+          <option type="transfer_on_sunday" feast="Ascension" apply="optional" />
+          <option type="transfer_on_sunday" feast="Corpus Christi" apply="optional" />
+        </options>
+      </temporale>
+
       <artefacts>
         <artefact type="packaged" ref="universal-en" />
       </artefacts>
