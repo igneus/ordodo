@@ -104,26 +104,10 @@ module Ordodo
     def load_calendars(calendar_node)
       tree_node = Tree::TreeNode.new(calendar_node['title'])
 
-      sanctoralia =
-        calendar_node.xpath('./artefacts/artefact').collect do |node|
-        type = node['type']
-        ref = node['ref']
-        if type == 'packaged'
-          data = CalendariumRomanum::Data[ref]
-          if data.nil?
-            raise Error.new("unsupported packaged calendar reference #{ref.inspect}")
-          end
-          data.load
-        elsif type == 'file'
-          path = node['path']
-          begin
-            @loader.load_from_file path
-          rescue Errno::ENOENT
-            raise Error.new("file #{path.inspect} doesn't exist")
-          end
-        else
-          raise Error.new("unsupported artefact type #{type.inspect}")
-        end
+      sanctoralia = calendar_node
+                    .xpath('./artefacts/artefact')
+                    .collect do |node|
+        load_artefact node
       end
 
       merged =
@@ -133,13 +117,34 @@ module Ordodo
         else
           sanctoralia.first
         end
-      tree_node.content = merged
+      tree_node.content = merged.freeze
 
       calendar_node.xpath('./calendars/calendar').each do |child_node|
         tree_node << load_calendars(child_node)
       end
 
       tree_node
+    end
+
+    def load_artefact(artefact_node)
+      type = artefact_node['type']
+      ref = artefact_node['ref']
+      if type == 'packaged'
+        data = CalendariumRomanum::Data[ref]
+        if data.nil?
+          raise Error.new("unsupported packaged calendar reference #{ref.inspect}")
+        end
+        data.load
+      elsif type == 'file'
+        path = artefact_node['path']
+        begin
+          @loader.load_from_file path
+        rescue Errno::ENOENT
+          raise Error.new("file #{path.inspect} doesn't exist")
+        end
+      else
+        raise Error.new("unsupported artefact type #{type.inspect}")
+      end
     end
   end
 end
