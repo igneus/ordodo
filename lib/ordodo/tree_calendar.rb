@@ -1,7 +1,8 @@
 module Ordodo
   class TreeCalendar
     def initialize(year)
-      @calendar = CalendariumRomanum::Calendar.new(year)
+      sanctorale = CalendariumRomanum::Data::GENERAL_ROMAN_ENGLISH.load
+      @calendar = CalendariumRomanum::Calendar.new(year, sanctorale)
     end
 
     def each_day
