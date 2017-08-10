@@ -8,8 +8,8 @@ calendars.
 ## The problem
 
 Every year, hundreds of Catholics around the world spend
-hundreds of hours each compiling an *ordo*, a liturgical calendar,
-for the new liturgical year.
+hundreds of hours each, compiling an *ordo*, a liturgical calendar,
+for the new liturgical year. Usually by hand.
 
 *Ordo* is basically a combination of a set of closely related
 liturgical calendars, e.g. calendars of dioceses of one country
