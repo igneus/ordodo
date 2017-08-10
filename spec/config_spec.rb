@@ -47,5 +47,44 @@ describe Ordodo::Config do
         end
       end
     end
+
+    describe 'temporale options' do
+      let(:xml) do
+        "<ordodo>
+           <temporale>
+             <options>
+               <option type=\"transfer_to_sunday\" feast=\"Epiphany\" apply=\"#{apply}\" />
+         </options></temporale></ordodo>"
+      end
+
+      let(:config) { described_class.from_xml xml }
+
+      describe 'applied always' do
+        let(:apply) { 'always' }
+
+        it 'loaded data structure' do
+          expect(config.temporale_options)
+            .to eq({always: {transfer_to_sunday: [:epiphany]}})
+        end
+      end
+
+      describe 'applied optionally' do
+        let(:apply) { 'optional' }
+
+        it 'loaded data structure' do
+          expect(config.temporale_options)
+            .to eq({optional: {transfer_to_sunday: [:epiphany]}})
+        end
+      end
+
+      describe 'never applied' do
+        let(:apply) { 'never' }
+
+        it 'has no effect on loaded data structure' do
+          expect(config.temporale_options)
+            .to eq({})
+        end
+      end
+    end
   end
 end
