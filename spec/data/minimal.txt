@@ -1,0 +1,2 @@
+# this file does not contain any calendar data,
+# but it's still a perfectly valid calendarium-romanum data file.

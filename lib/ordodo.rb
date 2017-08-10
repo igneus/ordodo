@@ -2,6 +2,7 @@ require 'date'
 
 require 'calendarium-romanum'
 require 'nokogiri'
+require 'rubytree'
 
 %w{
 version

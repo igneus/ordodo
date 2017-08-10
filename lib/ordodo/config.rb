@@ -4,6 +4,9 @@ module Ordodo
       @locale = :en
       @temporale_options = {}
       @temporale_extensions = []
+      @calendars = nil
+
+      @loader = CalendariumRomanum::SanctoraleLoader.new
 
       yield self if block_given?
       freeze
@@ -15,7 +18,10 @@ module Ordodo
       end
     end
 
-    attr_accessor :locale, :temporale_options, :temporale_extensions
+    attr_accessor :locale,
+                  :temporale_options,
+                  :temporale_extensions,
+                  :calendars
 
     def self.from_xml(xml)
       begin
@@ -35,6 +41,11 @@ module Ordodo
 
         doc.root.xpath('./temporale/extensions/extension').each do |ext|
           c.temporale_extension ext.text
+        end
+
+        root_calendar = doc.root.xpath('./calendars/calendar').first
+        if root_calendar
+          c.calendars = c.load_calendars(root_calendar)
         end
       end
     end
@@ -88,6 +99,47 @@ module Ordodo
       rescue NameError
         raise error
       end
+    end
+
+    def load_calendars(calendar_node)
+      tree_node = Tree::TreeNode.new(calendar_node['title'])
+
+      sanctoralia =
+        calendar_node.xpath('./artefacts/artefact').collect do |node|
+        type = node['type']
+        ref = node['ref']
+        if type == 'packaged'
+          data = CalendariumRomanum::Data[ref]
+          if data.nil?
+            raise Error.new("unsupported packaged calendar reference #{ref.inspect}")
+          end
+          data.load
+        elsif type == 'file'
+          path = node['path']
+          begin
+            @loader.load_from_file path
+          rescue Errno::ENOENT
+            raise Error.new("file #{path.inspect} doesn't exist")
+          end
+        else
+          raise Error.new("unsupported artefact type #{type.inspect}")
+        end
+      end
+
+      merged =
+        if sanctoralia.size > 1
+          CalendariumRomanum::SanctoraleFactory
+            .create_layered sanctoralia
+        else
+          sanctoralia.first
+        end
+      tree_node.content = merged
+
+      calendar_node.xpath('./calendars/calendar').each do |child_node|
+        tree_node << load_calendars(child_node)
+      end
+
+      tree_node
     end
   end
 end
