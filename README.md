@@ -57,7 +57,7 @@ configurations to start with.
 ## Credits
 
 The `ordodo` logo incorporates
-a [drawing of a dodo][dodo_img_src]
+a [drawing of a dodo][dodo_img_source]
 by Pearson Scott Foresman. The drawing is in public domain.
 
 [dodo_img_source]: https://commons.wikimedia.org/wiki/Raphus_cucullatus#/media/File:Dodo_2_(PSF).png
