@@ -46,6 +46,6 @@ in the meantime).
 
 ### Customization of translation strings and output templates
 
-### License
+## License
 
-### Author
+## Author
