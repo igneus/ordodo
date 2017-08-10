@@ -101,7 +101,7 @@ module Ordodo
       end
     end
 
-    def load_calendars(calendar_node)
+    def load_calendars(calendar_node, parent_sanctorale=nil)
       tree_node = Tree::TreeNode.new(calendar_node['title'])
 
       sanctoralia = calendar_node
@@ -110,17 +110,19 @@ module Ordodo
         load_artefact node
       end
 
+      sanctoralia.unshift parent_sanctorale if parent_sanctorale
+
       merged =
         if sanctoralia.size > 1
           CalendariumRomanum::SanctoraleFactory
-            .create_layered sanctoralia
+            .create_layered *sanctoralia
         else
           sanctoralia.first
         end
       tree_node.content = merged.freeze
 
       calendar_node.xpath('./calendars/calendar').each do |child_node|
-        tree_node << load_calendars(child_node)
+        tree_node << load_calendars(child_node, merged)
       end
 
       tree_node
