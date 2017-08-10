@@ -1,14 +1,15 @@
 # OrdoDO - *Ordo Divini Officii*
 
-Generates an *ordo* for a structured set of Roman Catholic liturgical
-calendars.
+Generates an *ordo* for a hierarchically organized set
+of Roman Catholic liturgical calendars.
 
 ![OrdoDO logo](/img/or_dodo_logo.png)
 
 ## The problem
 
 Every year, hundreds of Catholics around the world spend
-hundreds of hours each, compiling an *ordo*, a liturgical calendar,
+hundreds of hours each, compiling an *ordo*, a liturgical calendar
+of their country, diocese or religious institute,
 for the new liturgical year. Usually by hand.
 
 *Ordo* is basically a combination of a set of closely related
@@ -38,6 +39,9 @@ generates ordo for the year specified (which, of course, knows
 nothing about calendar updates which will probably happen
 in the meantime).
 
+In the `examples/` directory you can find a few example
+configurations to start with.
+
 ## Configuration
 
 ### Localization
@@ -49,3 +53,11 @@ in the meantime).
 ## License
 
 ## Author
+
+## Credits
+
+The `ordodo` logo incorporates
+a [drawing of a dodo][dodo_img_src]
+by Pearson Scott Foresman. The drawing is in public domain.
+
+[dodo_img_source]: https://commons.wikimedia.org/wiki/Raphus_cucullatus#/media/File:Dodo_2_(PSF).png

@@ -3,6 +3,23 @@ require 'spec_helper'
 describe Ordodo::Config do
   describe 'configuration effects' do
     describe 'locale' do
+      describe 'not specified' do
+        let(:xml) { '<ordodo></ordodo>' }
+
+        it 'loads default' do
+          config = described_class.from_xml xml
+          expect(config.locale).to eq :en
+        end
+
+        it 'sets default globally' do
+          I18n.locale = :it
+
+          expect do
+            config = described_class.from_xml xml
+          end.to change { I18n.locale }.to :en
+        end
+      end
+
       describe 'known' do
         let(:xml) { '<ordodo locale="it"></ordodo>' }
 

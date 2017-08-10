@@ -1,9 +1,8 @@
 module Ordodo
   class Config
     def initialize
-      @locale = :en
-
       yield self if block_given?
+      set_defaults
       freeze
 
       begin
@@ -31,6 +30,12 @@ module Ordodo
       def initialize(message)
         super 'configuration error: ' + message
       end
+    end
+
+    private
+
+    def set_defaults
+      @locale ||= :en
     end
   end
 end
