@@ -14,9 +14,9 @@
         is optional.
     -->
     <options>
-      <option type="transfer_on_sunday" feast="Epiphany" apply="optional" />
-      <option type="transfer_on_sunday" feast="Ascension" apply="optional" />
-      <option type="transfer_on_sunday" feast="Corpus Christi" apply="optional" />
+      <option type="transfer_to_sunday" feast="Epiphany" apply="optional" />
+      <option type="transfer_to_sunday" feast="Ascension" apply="optional" />
+      <option type="transfer_to_sunday" feast="Corpus Christi" apply="optional" />
     </options>
   </temporale>
 

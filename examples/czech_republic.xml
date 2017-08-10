@@ -25,9 +25,9 @@
         where the transfer takes place and where it doesn't.
     -->
     <options>
-      <option type="transfer_on_sunday" feast="Epiphany" apply="optional" />
-      <option type="transfer_on_sunday" feast="Ascension" apply="optional" />
-      <option type="transfer_on_sunday" feast="Corpus Christi" apply="optional" />
+      <option type="transfer_to_sunday" feast="Epiphany" apply="optional" />
+      <option type="transfer_to_sunday" feast="Ascension" apply="optional" />
+      <option type="transfer_to_sunday" feast="Corpus Christi" apply="optional" />
     </options>
   </temporale>
 
@@ -59,22 +59,22 @@
             </calendar>
             <calendar title="litoměřická diecéze">
               <artefacts>
-                <artefact type="packaged" ref="czech-ltm-cs" />
+                <artefact type="packaged" ref="czech-litomerice-cs" />
               </artefacts>
             </calendar>
             <calendar title="královéhradecká diecéze">
               <artefacts>
-                <artefact type="packaged" ref="czech-hk-cs" />
+                <artefact type="packaged" ref="czech-hradec-cs" />
               </artefacts>
             </calendar>
             <calendar title="českobudějovická diecéze">
               <artefacts>
-                <artefact type="packaged" ref="czech-cb-cs" />
+                <artefact type="packaged" ref="czech-budejovice-cs" />
               </artefacts>
             </calendar>
             <calendar title="plzeňská diecéze">
               <artefacts>
-                <artefact type="packaged" ref="czech-plz-cs" />
+                <artefact type="packaged" ref="czech-plzen-cs" />
               </artefacts>
             </calendar>
           </calendars>
@@ -89,17 +89,17 @@
           <calendars>
             <calendar title="arcidiecéze olomoucká">
               <artefacts>
-                <artefact type="packaged" ref="czech-olm-cs" />
+                <artefact type="packaged" ref="czech-olomouc-cs" />
               </artefacts>
             </calendar>
             <calendar title="brněnská diecéze">
               <artefacts>
-                <artefact type="packaged" ref="czech-brn-cs" />
+                <artefact type="packaged" ref="czech-brno-cs" />
               </artefacts>
             </calendar>
             <calendar title="diecéze ostravsko-opavská">
               <artefacts>
-                <artefact type="packaged" ref="czech-oo-cs" />
+                <artefact type="packaged" ref="czech-ostrava-cs" />
               </artefacts>
             </calendar>
           </calendars>
