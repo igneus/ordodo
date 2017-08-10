@@ -76,14 +76,15 @@ module Ordodo
     def temporale_extension(name)
       const_name = name.gsub(' ', '')
 
-      error = Error.new("unsupported temporale extension #{name}")
+      extensions_module = CalendariumRomanum::Temporale::Extensions
+      supported_extensions = extensions_module.constants.collect &:to_s
+      error = Error.new("unsupported temporale extension #{name.inspect}, supported are #{supported_extensions}")
 
       raise error unless const_name =~ /\A[\w\d]+\Z/
 
       begin
         @temporale_extensions <<
-          CalendariumRomanum::Temporale::Extensions
-          .const_get(const_name)
+          extensions_module.const_get(const_name)
       rescue NameError
         raise error
       end
