@@ -38,17 +38,21 @@ module Ordodo
       end
     end
 
+    OPTION_TYPES = %w(transfer_to_sunday).freeze
+    TRANSFERABLE_FEASTS = ['Epiphany', 'Ascension', 'Corpus Christi'].freeze
+    APPLY_OPTIONS = %w(always optional never).freeze
+
     def temporale_option(type, feast, apply)
-      if type != 'transfer_to_sunday'
-        raise Error.new("unknown temporale option type #{type.inspect}")
+      unless OPTION_TYPES.include? type
+        raise Error.new("unknown temporale option type #{type.inspect}, supported types are #{OPTION_TYPES}")
       end
 
-      unless ['Epiphany', 'Ascension', 'Corpus Christi'].include? feast
-        raise Error.new("cannot transfer #{value.inspect} on Sunday")
+      unless TRANSFERABLE_FEASTS.include? feast
+        raise Error.new("cannot transfer #{value.inspect} on Sunday, transfer supported only for #{TRANSFERABLE_FEASTS}")
       end
 
-      unless %w(always optional never).include? apply
-        raise Error.new("invalid 'apply' value #{apply.inspect}")
+      unless APPLY_OPTIONS.include? apply
+        raise Error.new("invalid 'apply' value #{apply.inspect}, supported values are #{APPLY_OPTIONS}")
       end
 
       return if apply == 'never'
