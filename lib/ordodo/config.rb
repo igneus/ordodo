@@ -5,6 +5,12 @@ module Ordodo
 
       yield self if block_given?
       freeze
+
+      begin
+        I18n.locale = @locale
+      rescue I18n::InvalidLocale => e
+        raise Error.new(e.message)
+      end
     end
 
     attr_accessor :locale
@@ -19,6 +25,12 @@ module Ordodo
 
     def create_tree_calendar(year)
       TreeCalendar.new(year)
+    end
+
+    class Error < ApplicationError
+      def initialize(message)
+        super 'configuration error: ' + message
+      end
     end
   end
 end

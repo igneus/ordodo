@@ -5,6 +5,7 @@ require 'nokogiri'
 
 %w{
 version
+application_error
 cli
 config
 generator

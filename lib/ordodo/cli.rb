@@ -4,8 +4,12 @@ module Ordodo
       config_path = argv[0] || die('Specify path to the configuration file.')
       year = argv[1]&.to_i
 
-      config = Config.from_xml File.read config_path
-      Generator.new(config).call year
+      begin
+        config = Config.from_xml File.read config_path
+        Generator.new(config).call year
+      rescue ApplicationError => e
+        die e.message
+      end
     end
 
     def self.die(message)

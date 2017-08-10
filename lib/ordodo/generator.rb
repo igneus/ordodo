@@ -6,9 +6,7 @@ module Ordodo
     end
 
     def call(year=nil)
-      I18n.with_locale(@config.locale) do
-        generate year
-      end
+      generate year
     end
 
     private
