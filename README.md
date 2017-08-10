@@ -3,6 +3,8 @@
 Generates an *ordo* for a structured set of Roman Catholic liturgical
 calendars.
 
+![OrdoDO logo](/img/or_dodo_logo.png)
+
 ## The problem
 
 Every year, hundreds of Catholics around the world spend
