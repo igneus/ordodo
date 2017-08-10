@@ -1,7 +1,21 @@
 require 'spec_helper'
 
 describe Ordodo::Config do
+  describe 'configuration parsing' do
+    describe 'malformed document' do
+      let(:xml) { '<ordodo><broken</ordodo>' }
+
+      it 'fails' do
+        expect do
+          described_class.from_xml xml
+        end.to raise_exception(Ordodo::Config::Error, /invalid XML/)
+      end
+    end
+  end
+
   describe 'configuration effects' do
+    let(:config) { described_class.from_xml xml }
+
     describe 'locale' do
       describe 'not specified' do
         let(:xml) { '<ordodo></ordodo>' }
@@ -57,8 +71,6 @@ describe Ordodo::Config do
          </options></temporale></ordodo>"
       end
 
-      let(:config) { described_class.from_xml xml }
-
       describe 'applied always' do
         let(:apply) { 'always' }
 
@@ -83,6 +95,39 @@ describe Ordodo::Config do
         it 'has no effect on loaded data structure' do
           expect(config.temporale_options)
             .to eq({})
+        end
+      end
+    end
+
+    describe 'temporale extensions' do
+      describe 'supported' do
+        let(:xml) do
+        "<ordodo>
+           <temporale>
+             <extensions>
+               <extension>Christ Eternal Priest</extension>
+         </extensions></temporale></ordodo>"
+        end
+
+        it 'is loaded' do
+          expect(config.temporale_extensions)
+            .to eq [CalendariumRomanum::Temporale::Extensions::ChristEternalPriest]
+        end
+      end
+
+      describe 'unsupported' do
+        let(:xml) do
+        "<ordodo>
+           <temporale>
+             <extensions>
+               <extension>Apparition of St. Michael</extension>
+         </extensions></temporale></ordodo>"
+        end
+
+        it 'is loaded' do
+          expect do
+            described_class.from_xml xml
+          end.to raise_exception(Ordodo::Config::Error, /unsupported temporale extension/)
         end
       end
     end
