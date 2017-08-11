@@ -100,3 +100,4 @@ RSpec.configure do |config|
 end
 
 require_relative '../lib/ordodo'
+require_relative '../lib/ordodo/util/tree_builder'
