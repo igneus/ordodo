@@ -15,17 +15,31 @@ module Ordodo
       year ||= upcoming_year
       puts "Generating ordo for liturgical year #{year}"
 
-      spacer = ' ' * 11
+      reducer = TreeReducer.new
 
       calendar = @config.create_tree_calendar(year)
       calendar.each_day do |day_tree|
-        day = TreeReducer.reduce day_tree
-        print day.date
-        print ' '
-        day.celebrations.each_with_index do |c, i|
-          print spacer if i > 0
-          puts c.title
+        reduced = reducer.reduce day_tree
+        if reduced.size == 1
+          print_day reduced.content
+        else
+          puts
+          reduced.each do |node|
+            print "#{node.name}: "
+            print_day node.content
+          end
+          puts
         end
+      end
+    end
+
+    def print_day(day)
+      spacer = ' ' * 11
+      print day.date
+      print ' '
+      day.celebrations.each_with_index do |c, i|
+        print spacer if i > 0
+        puts c.title
       end
     end
 
