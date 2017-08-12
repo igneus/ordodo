@@ -5,6 +5,7 @@ module Ordodo
       @temporale_options = {}
       @temporale_extensions = []
       @calendars = nil
+      @output_directory = nil
 
       @loader = CalendariumRomanum::SanctoraleLoader.new
 
@@ -21,7 +22,8 @@ module Ordodo
     attr_accessor :locale,
                   :temporale_options,
                   :temporale_extensions,
-                  :calendars
+                  :calendars,
+                  :output_directory
 
     def self.from_xml(xml)
       begin

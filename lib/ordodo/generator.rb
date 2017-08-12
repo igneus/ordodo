@@ -28,7 +28,14 @@ module Ordodo
 
       calendar = @config.create_tree_calendar(year)
 
-      outputters = [Outputters::Console.new(year)]
+      outputters = [
+        Outputters::Console.new(year),
+        Outputters::HTML.new(
+          year,
+          templates_dir: 'templates/html',
+          output_dir: "ordo_#{year}"
+        )
+      ]
       outputters.each &:prepare
 
       calendar.each_day do |day_tree|

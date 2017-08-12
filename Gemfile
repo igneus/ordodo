@@ -6,6 +6,7 @@ gem 'calendarium-romanum',
 gem 'i18n'
 gem 'nokogiri'
 gem 'rubytree'
+gem 'tilt'
 
 group :test do
   gem 'rspec'

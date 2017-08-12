@@ -1,0 +1,30 @@
+<div class="record">
+  <div class="record-header">
+    <%= record.date %>
+    <%= record.date.wday %>
+  </div>
+
+  <% record.entries.each do |entry| %>
+  <div class="entry">
+    <% if record.entries.size > 1 %>
+    <div class="variant-heading"><%= entry.titles.join(', ') %></div>
+    <% end %>
+
+    <% entry.celebrations.each do |celebration| %>
+    <div class="celebration">
+      <div class="colour colour-<%= celebration.colour.symbol %>">
+        <%= celebration.colour.symbol %>
+      </div>
+
+      <div class="celebration-title">
+        <% unless unprinted_ranks.include? celebration.rank %>
+        <div class="celebration-rank"><%= celebration.rank.short_desc %></div>
+        <% end %>
+
+        <%= celebration.title %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
+</div>

@@ -1,4 +1,5 @@
 require 'date'
+require 'tilt'
 
 require 'calendarium-romanum'
 require 'nokogiri'
@@ -13,6 +14,7 @@ generator
 linearizer
 outputters/outputter
 outputters/console
+outputters/html
 record
 tree_calendar
 tree_reducer
