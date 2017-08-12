@@ -1,7 +1,14 @@
 module Ordodo
   class TreeCalendar
-    def initialize(year, sanctorale_tree)
+    def initialize(year, sanctorale_tree, temporale_extensions, temporale_options)
       @year = year
+      @temporale_extensions = temporale_extensions
+
+      @temporale_factory = lambda do |year|
+        CalendariumRomanum::Temporale
+          .new(year, extensions: @temporale_extensions)
+      end
+
       @calendar_tree = build_calendar_tree sanctorale_tree
     end
 
@@ -20,7 +27,7 @@ module Ordodo
 
     def build_calendar_tree(sanctorale_tree)
       sanctorale = sanctorale_tree.content
-      calendar = CalendariumRomanum::Calendar.new(@year, sanctorale)
+      calendar = CalendariumRomanum::Calendar.new(@year, sanctorale, @temporale_factory)
       node = Tree::TreeNode.new(sanctorale_tree.name, calendar)
 
       sanctorale_tree.children.each do |child|

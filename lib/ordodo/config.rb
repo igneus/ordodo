@@ -51,7 +51,7 @@ module Ordodo
     end
 
     def create_tree_calendar(year)
-      TreeCalendar.new(year, calendars)
+      TreeCalendar.new(year, calendars, temporale_extensions, temporale_options)
     end
 
     class Error < ApplicationError

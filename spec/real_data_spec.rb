@@ -19,5 +19,15 @@ describe 'handling of real examples' do
       expect(celebration_titles)
         .to eq ['Sobota 30. týdne v mezidobí', 'Sv. Martina de Porres, řeholníka']
     end
+
+    it 'Christ Eternal Priest' do
+      day = tree_calendar.day Date.new(2018, 5, 24)
+      expect(day.size).to eq 11
+      reduced = reducer.reduce day
+      expect(reduced.size).to eq 1
+      celebration_titles = reduced.content.celebrations.collect &:title
+      expect(celebration_titles)
+        .to eq ['Ježíše Krista, nejvyššího a věčného kněze']
+    end
   end
 end
