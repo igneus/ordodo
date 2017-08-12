@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
+<!DOCTYPE ordodo SYSTEM "../xml/ordodo.dtd">
+
 <ordodo locale="cs">
   <meta>
     <title>Liturgický kalendář pro české a moravské diecéze</title>

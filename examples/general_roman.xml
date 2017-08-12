@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
+<!DOCTYPE ordodo SYSTEM "../xml/ordodo.dtd">
+
 <ordodo locale="en">
   <meta>
     <title>General Roman Calendar</title>

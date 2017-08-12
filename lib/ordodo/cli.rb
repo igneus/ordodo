@@ -5,7 +5,8 @@ module Ordodo
       year = argv[1]&.to_i
 
       begin
-        config = Config.from_xml File.read config_path
+        config =
+          File.open(config_path) {|fr| Config.from_xml fr }
         Generator.new(config).call year
       rescue ApplicationError => e
         die e.message

@@ -28,10 +28,19 @@ module Ordodo
     def self.from_xml(xml)
       begin
         doc = Nokogiri::XML(xml) do |config|
-          config.strict.noblanks
+          config
+            .strict
+            .noblanks
+            .dtdload
+            .dtdvalid
         end
       rescue Nokogiri::SyntaxError => e
         raise Error.new("invalid XML document: #{e.message}")
+      end
+
+      errors = doc.external_subset&.validate doc
+      if errors && !errors.empty?
+        raise ApplicationError.new('configuration file invalid: ' + errors.inspect)
       end
 
       new do |c|

@@ -1,0 +1,21 @@
+<!-- DTD for the ordodo configuration file -->
+
+<!ELEMENT ordodo (meta?,temporale?,calendar?)>
+<!ATTLIST ordodo locale CDATA "en">
+
+<!ELEMENT meta (title?,description?)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+
+<!ELEMENT temporale (extension*,option*)>
+<!ELEMENT extension (#PCDATA)>
+<!ELEMENT option EMPTY>
+<!ATTLIST option type (transfer_to_sunday) #REQUIRED>
+<!ATTLIST option feast CDATA #REQUIRED>
+<!ATTLIST option apply (always|optional|never) #REQUIRED>
+
+<!ELEMENT calendar (artefact*,calendar*)>
+<!ATTLIST calendar title CDATA #REQUIRED>
+<!ELEMENT artefact EMPTY>
+<!ATTLIST artefact type (packaged|file) #REQUIRED>
+<!ATTLIST artefact ref CDATA #REQUIRED>
