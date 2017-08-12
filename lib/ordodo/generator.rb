@@ -13,6 +13,9 @@ module Ordodo
 
     def generate(year=nil)
       year ||= upcoming_year
+      puts "Loaded calendars:"
+      @config.calendars.print_tree
+      puts
       puts "Generating ordo for liturgical year #{year}"
 
       reducer = TreeReducer.new
