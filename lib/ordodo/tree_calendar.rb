@@ -2,11 +2,17 @@ module Ordodo
   class TreeCalendar
     def initialize(year, sanctorale_tree, temporale_extensions, temporale_options)
       @year = year
-      @temporale_extensions = temporale_extensions
+
+      temporale_options_always =
+        temporale_options[:always]&.dup || {}
+      temporale_options_always[:extensions] = temporale_extensions
 
       @temporale_factory = lambda do |year|
         CalendariumRomanum::Temporale
-          .new(year, extensions: @temporale_extensions)
+          .new(
+            year,
+            **temporale_options_always
+          )
       end
 
       @calendar_tree = build_calendar_tree sanctorale_tree
