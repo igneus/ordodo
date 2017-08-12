@@ -1,13 +1,14 @@
 # OrdoDO - *Ordo Divini Officii*
 
-Generates an *ordo* for a hierarchically organized set
+Generates an *ordo*/[directory][wikipedia]
+for a hierarchically organized set
 of Roman Catholic liturgical calendars.
 
 ![OrdoDO logo](/img/or_dodo_logo.png)
 
 ## The problem
 
-Every year, hundreds of Catholics around the world spend
+Every year, hundreds of Catholics around the world spend possibly
 hundreds of hours each, compiling an *ordo*, a liturgical calendar
 of their country, diocese or religious institute,
 for the new liturgical year. Usually by hand.
@@ -61,3 +62,4 @@ a [drawing of a dodo][dodo_img_source]
 by Pearson Scott Foresman. The drawing is in public domain.
 
 [dodo_img_source]: https://commons.wikimedia.org/wiki/Raphus_cucullatus#/media/File:Dodo_2_(PSF).png
+[wikipedia]: https://en.wikipedia.org/wiki/Directorium
