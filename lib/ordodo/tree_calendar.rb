@@ -16,6 +16,26 @@ module Ordodo
       end
 
       @calendar_tree = build_calendar_tree sanctorale_tree
+
+      # add a branch for each optional Temporale option
+      temporale_options[:optional] &&
+        temporale_options[:optional][:transfer_to_sunday].each do |transferred|
+        factory = lambda do |year|
+          options = temporale_options_always.dup
+          options[:transfer_to_sunday] =
+            (options[:transfer_to_sunday] || []) + [transferred]
+          CalendariumRomanum::Temporale
+            .new(
+              year,
+              **options
+            )
+        end
+
+        sanctorale = sanctorale_tree.content
+        calendar = CalendariumRomanum::Calendar.new(@year, sanctorale, factory)
+        variant_name = transferred.to_s + '_on_sunday'
+        @calendar_tree << Tree::TreeNode.new(variant_name, calendar)
+      end
     end
 
     def each_day
