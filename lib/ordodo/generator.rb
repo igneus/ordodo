@@ -13,6 +13,11 @@ module Ordodo
 
     def generate(year=nil)
       year ||= upcoming_year
+
+      if @config.calendars.nil?
+        raise ApplicationError.new('no calendars loaded. Please, specify at least one calendar.')
+      end
+
       puts "Loaded calendars:"
       @config.calendars.print_tree
       puts

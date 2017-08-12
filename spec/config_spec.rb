@@ -136,11 +136,10 @@ describe Ordodo::Config do
       describe 'one' do
         let(:xml) do
         '<ordodo>
-           <calendars>
-             <calendar title="General Roman Calendar">
-               <artefacts>
-                 <artefact type="packaged" ref="universal-en" />
-         </artefacts></calendar></calendars></ordodo>'
+           <calendar title="General Roman Calendar">
+             <artefacts>
+               <artefact type="packaged" ref="universal-en" />
+         </artefacts></calendar></ordodo>'
         end
 
         it 'loads' do
@@ -152,12 +151,11 @@ describe Ordodo::Config do
       describe 'with multiple artefacts'do
         let(:xml) do
         '<ordodo>
-           <calendars>
-             <calendar title="province of Bohemia">
-               <artefacts>
-                 <artefact type="packaged" ref="czech-cs" />
-                 <artefact type="packaged" ref="czech-cechy-cs" />
-         </artefacts></calendar></calendars></ordodo>'
+           <calendar title="province of Bohemia">
+             <artefacts>
+               <artefact type="packaged" ref="czech-cs" />
+               <artefact type="packaged" ref="czech-cechy-cs" />
+         </artefacts></calendar></ordodo>'
         end
 
         it 'loads' do
@@ -171,17 +169,16 @@ describe Ordodo::Config do
       describe 'nested' do
         let(:xml) do
         '<ordodo>
-           <calendars>
-             <calendar title="Czech Republic">
-               <artefacts>
-                 <artefact type="packaged" ref="czech-cs" />
-               </artefacts>
-               <calendars>
-                 <calendar title="province of Bohemia">
-                   <artefacts>
-                     <artefact type="packaged" ref="czech-cechy-cs" />
-               </artefacts></calendar></calendars>
-         </calendar></calendars></ordodo>'
+           <calendar title="Czech Republic">
+             <artefacts>
+               <artefact type="packaged" ref="czech-cs" />
+             </artefacts>
+             <calendars>
+               <calendar title="province of Bohemia">
+                 <artefacts>
+                   <artefact type="packaged" ref="czech-cechy-cs" />
+             </artefacts></calendar></calendars>
+         </calendar></ordodo>'
         end
 
         it 'loads' do
@@ -222,11 +219,10 @@ describe Ordodo::Config do
       describe 'invalid' do
         let(:xml) do
         '<ordodo>
-           <calendars>
-             <calendar title="General Roman Calendar">
-               <artefacts>
-                 <artefact type="packaged" ref="unknown-ref" />
-         </artefacts></calendar></calendars></ordodo>'
+           <calendar title="General Roman Calendar">
+             <artefacts>
+               <artefact type="packaged" ref="unknown-ref" />
+         </artefacts></calendar></ordodo>'
         end
 
         it 'fails' do
@@ -239,11 +235,11 @@ describe Ordodo::Config do
       describe 'data from file' do
         describe 'which exists' do
           let(:xml) do
-            '<ordodo><calendars>
+            '<ordodo>
                <calendar title="General Roman Calendar">
                  <artefacts>
                    <artefact type="file" path="spec/data/minimal.txt" />
-             </artefacts></calendar></calendars></ordodo>'
+             </artefacts></calendar></ordodo>'
           end
 
           it 'loads' do
@@ -254,11 +250,11 @@ describe Ordodo::Config do
 
         describe 'which does not exist' do
           let(:xml) do
-            '<ordodo><calendars>
+            '<ordodo>
                <calendar title="General Roman Calendar">
                  <artefacts>
                    <artefact type="file" path="spec/unknown/file.txt" />
-             </artefacts></calendar></calendars></ordodo>'
+             </artefacts></calendar></ordodo>'
           end
 
           it 'loads' do

@@ -43,7 +43,7 @@ module Ordodo
           c.temporale_extension ext.text
         end
 
-        root_calendar = doc.root.xpath('./calendars/calendar').first
+        root_calendar = doc.root.xpath('./calendar').first
         if root_calendar
           c.calendars = c.load_calendars(root_calendar)
         end

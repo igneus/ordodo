@@ -38,73 +38,71 @@
       a handful of dioceses. Since the liturgical reform of Vatican II
       a great part of the liturgical calendar is common to all of them.
   -->
-  <calendars>
-    <calendar title="české a moravské diecéze">
-      <artefacts>
-        <artefact type="packaged" ref="czech-cs" />
-      </artefacts>
+  <calendar title="české a moravské diecéze">
+    <artefacts>
+      <artefact type="packaged" ref="czech-cs" />
+    </artefacts>
 
-      <calendars>
-        <!-- province Bohemia -->
-        <calendar title="česká církevní provincie">
-          <artefacts>
-            <artefact type="packaged" ref="czech-cechy-cs" />
-          </artefacts>
+    <calendars>
+      <!-- province Bohemia -->
+      <calendar title="česká církevní provincie">
+        <artefacts>
+          <artefact type="packaged" ref="czech-cechy-cs" />
+        </artefacts>
 
-          <calendars>
-            <calendar title="arcidiecéze pražská">
-              <artefacts>
-                <artefact type="packaged" ref="czech-praha-cs" />
-              </artefacts>
-            </calendar>
-            <calendar title="litoměřická diecéze">
-              <artefacts>
-                <artefact type="packaged" ref="czech-litomerice-cs" />
-              </artefacts>
-            </calendar>
-            <calendar title="královéhradecká diecéze">
-              <artefacts>
-                <artefact type="packaged" ref="czech-hradec-cs" />
-              </artefacts>
-            </calendar>
-            <calendar title="českobudějovická diecéze">
-              <artefacts>
-                <artefact type="packaged" ref="czech-budejovice-cs" />
-              </artefacts>
-            </calendar>
-            <calendar title="plzeňská diecéze">
-              <artefacts>
-                <artefact type="packaged" ref="czech-plzen-cs" />
-              </artefacts>
-            </calendar>
-          </calendars>
-        </calendar>
+        <calendars>
+          <calendar title="arcidiecéze pražská">
+            <artefacts>
+              <artefact type="packaged" ref="czech-praha-cs" />
+            </artefacts>
+          </calendar>
+          <calendar title="litoměřická diecéze">
+            <artefacts>
+              <artefact type="packaged" ref="czech-litomerice-cs" />
+            </artefacts>
+          </calendar>
+          <calendar title="královéhradecká diecéze">
+            <artefacts>
+              <artefact type="packaged" ref="czech-hradec-cs" />
+            </artefacts>
+          </calendar>
+          <calendar title="českobudějovická diecéze">
+            <artefacts>
+              <artefact type="packaged" ref="czech-budejovice-cs" />
+            </artefacts>
+          </calendar>
+          <calendar title="plzeňská diecéze">
+            <artefacts>
+              <artefact type="packaged" ref="czech-plzen-cs" />
+            </artefacts>
+          </calendar>
+        </calendars>
+      </calendar>
 
-        <!-- province Moravia -->
-        <calendar title="moravská církevní provincie">
-          <artefacts>
-            <artefact type="packaged" ref="czech-morava-cs" />
-          </artefacts>
+      <!-- province Moravia -->
+      <calendar title="moravská církevní provincie">
+        <artefacts>
+          <artefact type="packaged" ref="czech-morava-cs" />
+        </artefacts>
 
-          <calendars>
-            <calendar title="arcidiecéze olomoucká">
-              <artefacts>
-                <artefact type="packaged" ref="czech-olomouc-cs" />
-              </artefacts>
-            </calendar>
-            <calendar title="brněnská diecéze">
-              <artefacts>
-                <artefact type="packaged" ref="czech-brno-cs" />
-              </artefacts>
-            </calendar>
-            <calendar title="diecéze ostravsko-opavská">
-              <artefacts>
-                <artefact type="packaged" ref="czech-ostrava-cs" />
-              </artefacts>
-            </calendar>
-          </calendars>
-        </calendar>
-      </calendars>
-    </calendar>
-  </calendars>
+        <calendars>
+          <calendar title="arcidiecéze olomoucká">
+            <artefacts>
+              <artefact type="packaged" ref="czech-olomouc-cs" />
+            </artefacts>
+          </calendar>
+          <calendar title="brněnská diecéze">
+            <artefacts>
+              <artefact type="packaged" ref="czech-brno-cs" />
+            </artefacts>
+          </calendar>
+          <calendar title="diecéze ostravsko-opavská">
+            <artefacts>
+              <artefact type="packaged" ref="czech-ostrava-cs" />
+            </artefacts>
+          </calendar>
+        </calendars>
+      </calendar>
+    </calendars>
+  </calendar>
 </ordodo>
