@@ -99,5 +99,9 @@ RSpec.configure do |config|
 =end
 end
 
+require 'pp'
+
 require_relative '../lib/ordodo'
 require_relative '../lib/ordodo/util/tree_builder'
+
+CR = CalendariumRomanum

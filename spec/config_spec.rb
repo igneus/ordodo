@@ -191,6 +191,32 @@ describe Ordodo::Config do
           child = root.children.first
           expect(child.name).to eq 'province of Bohemia'
         end
+
+        describe 'child calendar' do
+          let(:child_cal) do
+            config.calendars['province of Bohemia'].content
+          end
+
+          it 'has celebrations from the parent' do
+            celebrations = child_cal.get 7, 16
+            expect(celebrations)
+              .to eq([CR::Celebration.new(
+                       'Panny Marie Karmelské',
+                       CR::Ranks::MEMORIAL_OPTIONAL,
+                       CR::Colours::WHITE
+                     )])
+          end
+
+          it 'has proper celebrations' do
+            celebrations = child_cal.get 7, 4
+            expect(celebrations)
+              .to eq([CR::Celebration.new(
+                       'Sv. Prokopa, opata',
+                       CR::Ranks::MEMORIAL_PROPER,
+                       CR::Colours::WHITE
+                     )])
+          end
+        end
       end
 
       describe 'invalid' do

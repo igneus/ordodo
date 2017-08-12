@@ -8,8 +8,12 @@ module Ordodo
     def each_day
       root_calendar = @calendar_tree.content
       root_calendar.temporale.date_range.each do |date|
-        yield build_day_tree(date, @calendar_tree)
+        yield day(date)
       end
+    end
+
+    def day(date)
+      build_day_tree(date, @calendar_tree)
     end
 
     private
