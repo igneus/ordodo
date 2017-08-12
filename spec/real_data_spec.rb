@@ -12,7 +12,6 @@ describe 'handling of real examples' do
 
     it 'November 3rd' do
       day = tree_calendar.day Date.new(2018, 11, 3)
-      expect(day.size).to eq 11
       reduced = reducer.reduce day
       expect(reduced.size).to eq 1
       celebration_titles = reduced.content.celebrations.collect &:title
@@ -22,7 +21,6 @@ describe 'handling of real examples' do
 
     it 'Christ Eternal Priest' do
       day = tree_calendar.day Date.new(2018, 5, 24)
-      expect(day.size).to eq 11
       reduced = reducer.reduce day
       expect(reduced.size).to eq 1
       celebration_titles = reduced.content.celebrations.collect &:title
