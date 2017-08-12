@@ -1,7 +1,7 @@
 GIT
   remote: git://github.com/igneus/calendarium-romanum.git
-  revision: db2f75aa427ff73530b9d8f1dbce6e59e26422ce
-  ref: db2f75a
+  revision: 8ddaf2ef877ba9438fc8426196eed278c2658739
+  ref: 8ddaf2e
   specs:
     calendarium-romanum (0.3.0)
       i18n (~> 0.6)
