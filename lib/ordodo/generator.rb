@@ -20,12 +20,12 @@ module Ordodo
       calendar = @config.create_tree_calendar(year)
       calendar.each_day do |day_tree|
         reduced = reducer.reduce day_tree
+        print "#{day_tree.content.date} "
         if reduced.size == 1
           print_day reduced.content
         else
-          puts
-          reduced.each do |node|
-            print "#{node.name}: "
+          reduced.each.each_with_index do |node, i|
+            print "-> #{node.name}: " if i != 0
             print_day node.content
           end
           puts
@@ -35,11 +35,16 @@ module Ordodo
 
     def print_day(day)
       spacer = ' ' * 11
-      print day.date
-      print ' '
       day.celebrations.each_with_index do |c, i|
         print spacer if i > 0
-        puts c.title
+        print "#{c.title}"
+
+        if c.rank >= CalendariumRomanum::Ranks::MEMORIAL_PROPER ||
+           c.rank < CalendariumRomanum::Ranks::FERIAL
+          print ", #{c.rank.short_desc}"
+        end
+
+        puts
       end
     end
 
