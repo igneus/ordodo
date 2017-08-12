@@ -10,6 +10,8 @@ application_error
 cli
 config
 generator
+linearizer
+record
 tree_calendar
 tree_reducer
 }.each do |f|

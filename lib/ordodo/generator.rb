@@ -24,17 +24,18 @@ module Ordodo
       puts "Generating ordo for liturgical year #{year}"
 
       reducer = TreeReducer.new
+      linearizer = Linearizer.new
 
       calendar = @config.create_tree_calendar(year)
       calendar.each_day do |day_tree|
-        reduced = reducer.reduce day_tree
-        print "#{day_tree.content.date} "
-        if reduced.size == 1
-          print_day reduced.content
+        record = linearizer.linearize reducer.reduce day_tree
+        print "#{record.date} "
+        if record.entries.size == 1
+          print_day record.entries.first
         else
-          reduced.each.each_with_index do |node, i|
-            print "-> #{node.name}: " if i != 0
-            print_day node.content
+          record.entries.each_with_index do |entry, i|
+            print "-> #{entry.titles.join(', ')}: " if i != 0
+            print_day entry
           end
           puts
         end
