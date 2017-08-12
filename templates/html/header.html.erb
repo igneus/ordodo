@@ -4,9 +4,17 @@
   <head>
     <meta charset="utf-8">
     <meta name="generator" value="ordodo https://github.com/igneus/ordodo">
-    <title>Ordo <%= year %></title>
+    <title>Liturgical Calendar <%= year %></title>
     <style>
+      .record { max-width: 600px; margin: 1em auto; border-bottom: 1px solid black; }
+      .entry { margin-top: 1em; }
+      .entry:first-child { margin-top: 0; }
 
+      .colour { display: inline-block; width: 1em; height: 1em; overflow: hidden; border: 1px solid #333; }
+      .colour-green { background-color: green; }
+      .colour-red { background-color: red; }
+      .colour-violet { background-color: violet; }
     </style>
   </head>
   <body>
+    <h1>Liturgical Calendar <%= year %></h1>
