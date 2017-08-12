@@ -13,11 +13,9 @@
         Transfer of Epiphany, Ascension and Corpus Christi
         is optional.
     -->
-    <options>
-      <option type="transfer_to_sunday" feast="Epiphany" apply="optional" />
-      <option type="transfer_to_sunday" feast="Ascension" apply="optional" />
-      <option type="transfer_to_sunday" feast="Corpus Christi" apply="optional" />
-    </options>
+    <option type="transfer_to_sunday" feast="Epiphany" apply="optional" />
+    <option type="transfer_to_sunday" feast="Ascension" apply="optional" />
+    <option type="transfer_to_sunday" feast="Corpus Christi" apply="optional" />
   </temporale>
 
   <!--
@@ -28,8 +26,6 @@
       a great part of the liturgical calendar is common to all of them.
   -->
   <calendar title="General Roman Calendar">
-    <artefacts>
-      <artefact type="packaged" ref="universal-en" />
-    </artefacts>
+    <artefact type="packaged" ref="universal-en" />
   </calendar>
 </ordodo>

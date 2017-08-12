@@ -14,9 +14,7 @@
         Additional movable feasts not included
         in the General Roman Calendar.
     -->
-    <extensions>
-      <extension>Christ Eternal Priest</extension>
-    </extensions>
+    <extension>Christ Eternal Priest</extension>
 
     <!--
         Transfer of Epiphany, Ascension and Corpus Christi
@@ -24,11 +22,9 @@
         so variants must be properly generated both for places
         where the transfer takes place and where it doesn't.
     -->
-    <options>
-      <option type="transfer_to_sunday" feast="Epiphany" apply="optional" />
-      <option type="transfer_to_sunday" feast="Ascension" apply="optional" />
-      <option type="transfer_to_sunday" feast="Corpus Christi" apply="optional" />
-    </options>
+    <option type="transfer_to_sunday" feast="Epiphany" apply="optional" />
+    <option type="transfer_to_sunday" feast="Ascension" apply="optional" />
+    <option type="transfer_to_sunday" feast="Corpus Christi" apply="optional" />
   </temporale>
 
   <!--
@@ -39,70 +35,42 @@
       a great part of the liturgical calendar is common to all of them.
   -->
   <calendar title="české a moravské diecéze">
-    <artefacts>
-      <artefact type="packaged" ref="czech-cs" />
-    </artefacts>
+    <artefact type="packaged" ref="czech-cs" />
 
-    <calendars>
-      <!-- province Bohemia -->
-      <calendar title="česká církevní provincie">
-        <artefacts>
-          <artefact type="packaged" ref="czech-cechy-cs" />
-        </artefacts>
+    <!-- province Bohemia -->
+    <calendar title="česká církevní provincie">
+      <artefact type="packaged" ref="czech-cechy-cs" />
 
-        <calendars>
-          <calendar title="arcidiecéze pražská">
-            <artefacts>
-              <artefact type="packaged" ref="czech-praha-cs" />
-            </artefacts>
-          </calendar>
-          <calendar title="litoměřická diecéze">
-            <artefacts>
-              <artefact type="packaged" ref="czech-litomerice-cs" />
-            </artefacts>
-          </calendar>
-          <calendar title="královéhradecká diecéze">
-            <artefacts>
-              <artefact type="packaged" ref="czech-hradec-cs" />
-            </artefacts>
-          </calendar>
-          <calendar title="českobudějovická diecéze">
-            <artefacts>
-              <artefact type="packaged" ref="czech-budejovice-cs" />
-            </artefacts>
-          </calendar>
-          <calendar title="plzeňská diecéze">
-            <artefacts>
-              <artefact type="packaged" ref="czech-plzen-cs" />
-            </artefacts>
-          </calendar>
-        </calendars>
+      <calendar title="arcidiecéze pražská">
+        <artefact type="packaged" ref="czech-praha-cs" />
       </calendar>
-
-      <!-- province Moravia -->
-      <calendar title="moravská církevní provincie">
-        <artefacts>
-          <artefact type="packaged" ref="czech-morava-cs" />
-        </artefacts>
-
-        <calendars>
-          <calendar title="arcidiecéze olomoucká">
-            <artefacts>
-              <artefact type="packaged" ref="czech-olomouc-cs" />
-            </artefacts>
-          </calendar>
-          <calendar title="brněnská diecéze">
-            <artefacts>
-              <artefact type="packaged" ref="czech-brno-cs" />
-            </artefacts>
-          </calendar>
-          <calendar title="diecéze ostravsko-opavská">
-            <artefacts>
-              <artefact type="packaged" ref="czech-ostrava-cs" />
-            </artefacts>
-          </calendar>
-        </calendars>
+      <calendar title="litoměřická diecéze">
+        <artefact type="packaged" ref="czech-litomerice-cs" />
       </calendar>
-    </calendars>
+      <calendar title="královéhradecká diecéze">
+        <artefact type="packaged" ref="czech-hradec-cs" />
+      </calendar>
+      <calendar title="českobudějovická diecéze">
+        <artefact type="packaged" ref="czech-budejovice-cs" />
+      </calendar>
+      <calendar title="plzeňská diecéze">
+        <artefact type="packaged" ref="czech-plzen-cs" />
+      </calendar>
+    </calendar>
+
+    <!-- province Moravia -->
+    <calendar title="moravská církevní provincie">
+      <artefact type="packaged" ref="czech-morava-cs" />
+
+      <calendar title="arcidiecéze olomoucká">
+        <artefact type="packaged" ref="czech-olomouc-cs" />
+      </calendar>
+      <calendar title="brněnská diecéze">
+        <artefact type="packaged" ref="czech-brno-cs" />
+      </calendar>
+      <calendar title="diecéze ostravsko-opavská">
+        <artefact type="packaged" ref="czech-ostrava-cs" />
+      </calendar>
+    </calendar>
   </calendar>
 </ordodo>

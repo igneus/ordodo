@@ -37,11 +37,11 @@ module Ordodo
       new do |c|
         c.locale = doc.root['locale'] || c.locale
 
-        doc.root.xpath('./temporale/options/option').each do |option|
+        doc.root.xpath('./temporale/option').each do |option|
           c.temporale_option option['type'], option['feast'], option['apply']
         end
 
-        doc.root.xpath('./temporale/extensions/extension').each do |ext|
+        doc.root.xpath('./temporale/extension').each do |ext|
           c.temporale_extension ext.text
         end
 
@@ -107,7 +107,7 @@ module Ordodo
       tree_node = Tree::TreeNode.new(calendar_node['title'])
 
       sanctoralia = calendar_node
-                    .xpath('./artefacts/artefact')
+                    .xpath('./artefact')
                     .collect do |node|
         load_artefact node
       end
@@ -123,7 +123,7 @@ module Ordodo
         end
       tree_node.content = merged.freeze
 
-      calendar_node.xpath('./calendars/calendar').each do |child_node|
+      calendar_node.xpath('./calendar').each do |child_node|
         tree_node << load_calendars(child_node, merged)
       end
 

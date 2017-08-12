@@ -66,9 +66,8 @@ describe Ordodo::Config do
       let(:xml) do
         "<ordodo>
            <temporale>
-             <options>
-               <option type=\"transfer_to_sunday\" feast=\"Epiphany\" apply=\"#{apply}\" />
-         </options></temporale></ordodo>"
+             <option type=\"transfer_to_sunday\" feast=\"Epiphany\" apply=\"#{apply}\" />
+         </temporale></ordodo>"
       end
 
       describe 'applied always' do
@@ -104,9 +103,8 @@ describe Ordodo::Config do
         let(:xml) do
         "<ordodo>
            <temporale>
-             <extensions>
-               <extension>Christ Eternal Priest</extension>
-         </extensions></temporale></ordodo>"
+             <extension>Christ Eternal Priest</extension>
+         </temporale></ordodo>"
         end
 
         it 'is loaded' do
@@ -119,9 +117,8 @@ describe Ordodo::Config do
         let(:xml) do
         "<ordodo>
            <temporale>
-             <extensions>
-               <extension>Apparition of St. Michael</extension>
-         </extensions></temporale></ordodo>"
+             <extension>Apparition of St. Michael</extension>
+         </temporale></ordodo>"
         end
 
         it 'is loaded' do
@@ -137,9 +134,8 @@ describe Ordodo::Config do
         let(:xml) do
         '<ordodo>
            <calendar title="General Roman Calendar">
-             <artefacts>
-               <artefact type="packaged" ref="universal-en" />
-         </artefacts></calendar></ordodo>'
+             <artefact type="packaged" ref="universal-en" />
+         </calendar></ordodo>'
         end
 
         it 'loads' do
@@ -152,10 +148,9 @@ describe Ordodo::Config do
         let(:xml) do
         '<ordodo>
            <calendar title="province of Bohemia">
-             <artefacts>
-               <artefact type="packaged" ref="czech-cs" />
-               <artefact type="packaged" ref="czech-cechy-cs" />
-         </artefacts></calendar></ordodo>'
+             <artefact type="packaged" ref="czech-cs" />
+             <artefact type="packaged" ref="czech-cechy-cs" />
+         </calendar></ordodo>'
         end
 
         it 'loads' do
@@ -170,14 +165,10 @@ describe Ordodo::Config do
         let(:xml) do
         '<ordodo>
            <calendar title="Czech Republic">
-             <artefacts>
-               <artefact type="packaged" ref="czech-cs" />
-             </artefacts>
-             <calendars>
-               <calendar title="province of Bohemia">
-                 <artefacts>
-                   <artefact type="packaged" ref="czech-cechy-cs" />
-             </artefacts></calendar></calendars>
+             <artefact type="packaged" ref="czech-cs" />
+             <calendar title="province of Bohemia">
+               <artefact type="packaged" ref="czech-cechy-cs" />
+             </calendar>
          </calendar></ordodo>'
         end
 
@@ -220,9 +211,8 @@ describe Ordodo::Config do
         let(:xml) do
         '<ordodo>
            <calendar title="General Roman Calendar">
-             <artefacts>
-               <artefact type="packaged" ref="unknown-ref" />
-         </artefacts></calendar></ordodo>'
+             <artefact type="packaged" ref="unknown-ref" />
+         </calendar></ordodo>'
         end
 
         it 'fails' do
@@ -237,9 +227,8 @@ describe Ordodo::Config do
           let(:xml) do
             '<ordodo>
                <calendar title="General Roman Calendar">
-                 <artefacts>
-                   <artefact type="file" path="spec/data/minimal.txt" />
-             </artefacts></calendar></ordodo>'
+                 <artefact type="file" path="spec/data/minimal.txt" />
+             </calendar></ordodo>'
           end
 
           it 'loads' do
@@ -252,9 +241,8 @@ describe Ordodo::Config do
           let(:xml) do
             '<ordodo>
                <calendar title="General Roman Calendar">
-                 <artefacts>
-                   <artefact type="file" path="spec/unknown/file.txt" />
-             </artefacts></calendar></ordodo>'
+                 <artefact type="file" path="spec/unknown/file.txt" />
+             </calendar></ordodo>'
           end
 
           it 'loads' do
