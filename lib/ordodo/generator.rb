@@ -27,34 +27,16 @@ module Ordodo
       linearizer = Linearizer.new
 
       calendar = @config.create_tree_calendar(year)
+
+      outputters = [Outputters::Console.new(year)]
+      outputters.each &:prepare
+
       calendar.each_day do |day_tree|
         record = linearizer.linearize reducer.reduce day_tree
-        print "#{record.date} "
-        if record.entries.size == 1
-          print_day record.entries.first
-        else
-          record.entries.each_with_index do |entry, i|
-            print "-> #{entry.titles.join(', ')}: " if i != 0
-            print_day entry
-          end
-          puts
-        end
+        outputters.each {|o| o << record }
       end
-    end
 
-    def print_day(day)
-      spacer = ' ' * 11
-      day.celebrations.each_with_index do |c, i|
-        print spacer if i > 0
-        print "#{c.title}"
-
-        if c.rank >= CalendariumRomanum::Ranks::MEMORIAL_PROPER ||
-           c.rank < CalendariumRomanum::Ranks::FERIAL
-          print ", #{c.rank.short_desc}"
-        end
-
-        puts
-      end
+      outputters.each &:finish
     end
 
     def upcoming_year

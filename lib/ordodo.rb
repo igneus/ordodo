@@ -11,6 +11,8 @@ cli
 config
 generator
 linearizer
+outputters/outputter
+outputters/console
 record
 tree_calendar
 tree_reducer
