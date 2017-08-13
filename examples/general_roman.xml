@@ -22,10 +22,6 @@
 
   <!--
       Structure of sanctorale data.
-      The church organisation in Czech Republic is relatively
-      simple: there are only two provinces, each having
-      a handful of dioceses. Since the liturgical reform of Vatican II
-      a great part of the liturgical calendar is common to all of them.
   -->
   <calendar title="General Roman Calendar">
     <artefact type="packaged" ref="universal-en" />
