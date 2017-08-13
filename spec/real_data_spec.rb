@@ -7,8 +7,20 @@ describe 'handling of real examples' do
   let(:tree_calendar) { config.create_tree_calendar year }
   let(:reducer) { Ordodo::TreeReducer.new }
 
+  shared_examples 'any example configuration' do
+    it 'loads without error' do
+      expect do
+        File.open(config_fullpath) do |fr|
+          Ordodo::Config.from_xml fr
+        end
+      end.not_to raise_exception
+    end
+  end
+
   describe 'Czech calendar' do
     let(:config_file) { 'czech_republic.xml' }
+
+    it_behaves_like 'any example configuration'
 
     it 'November 3rd' do
       day = tree_calendar.day Date.new(2018, 11, 3)
@@ -27,5 +39,11 @@ describe 'handling of real examples' do
       expect(celebration_titles)
         .to eq ['Ježíše Krista, nejvyššího a věčného kněze']
     end
+  end
+
+  describe 'General Roman Calendar (English)' do
+    let(:config_file) { 'general_roman.xml' }
+
+    it_behaves_like 'any example configuration'
   end
 end
