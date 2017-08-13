@@ -40,7 +40,7 @@ module Ordodo
 
       errors = doc.external_subset&.validate doc
       if errors && !errors.empty?
-        raise ApplicationError.new('configuration file invalid: ' + errors.inspect)
+        raise Error.new('configuration file invalid: ' + errors.collect(&:message).join('; '))
       end
 
       new do |c|

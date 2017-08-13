@@ -11,6 +11,21 @@ describe Ordodo::Config do
         end.to raise_exception(Ordodo::Config::Error, /invalid XML/)
       end
     end
+
+    describe 'document not matching DTD' do
+      let(:dtd_path) { File.expand_path('../../xml/ordodo.dtd', __FILE__) }
+      let(:xml) do
+        "<?xml version=\"1.0\" ?>
+         <!DOCTYPE ordodo SYSTEM \"#{dtd_path}\">
+         <ordodo><unsupported /></ordodo>"
+      end
+
+      it 'fails' do
+        expect do
+          described_class.from_xml xml
+        end.to raise_exception(Ordodo::Config::Error, /configuration file invalid/)
+      end
+    end
   end
 
   describe 'configuration effects' do
