@@ -14,8 +14,8 @@
       <% entry.celebrations.each do |celebration| %>
       <div class="celebration">
         <div class="celebration-title">
-          <span class="colour colour-<%= celebration.colour.symbol %>">
-            <%= celebration.colour.symbol %>
+          <span class="colour colour-<%= celebration.colour.symbol %>" title="<%= celebration.colour.name %>">
+            <%= celebration.colour.name[0].upcase %>
           </span>
 
           <% if unprinted_ranks.include? celebration.rank %>

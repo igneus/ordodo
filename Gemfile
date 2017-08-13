@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'calendarium-romanum',
     github: 'igneus/calendarium-romanum',
-    ref: '8ddaf2e'
+    ref: '39538da'
 gem 'i18n'
 gem 'nokogiri'
 gem 'rubytree'
