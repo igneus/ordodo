@@ -25,14 +25,24 @@
     <!--
         Additional movable feasts not included
         in the General Roman Calendar.
+
+        Currently no other feast than "Christ Eternal Priest"
+        is supported. If you need one, open an issue.
     -->
     <extension>Christ Eternal Priest</extension>
 
     <!--
-        Transfer of Epiphany, Ascension and Corpus Christi
-        is optional in Czech Republic,
-        so variants must be properly generated both for places
-        where the transfer takes place and where it doesn't.
+        Optional transfer of solemnities on Sunday.
+
+        Only the three solemnities of Epiphany, Ascension
+        and Corpus Christi can be transferred this way.
+
+        apply="optional" generates variants for scenarios both
+        with and without the transfer;
+        apply="always" generates only variant for scenario
+        with the transfer;
+        apply="never" (default - leaving the option out has the
+        same effect) generates only variant without the transfer
     -->
     <option type="transfer_to_sunday" feast="Epiphany" apply="optional" />
     <option type="transfer_to_sunday" feast="Ascension" apply="optional" />
@@ -41,15 +51,31 @@
 
   <!--
       Structure of sanctorale data.
+
       The church organisation in Czech Republic is relatively
       simple: there are only two provinces, each having
       a handful of dioceses. Since the liturgical reform of Vatican II
       a great part of the liturgical calendar is common to all of them.
+
+      There is no nesting limit imposed by ordodo, you can
+      use as many levels as necessary.
+  -->
+
+  <!--
+      Each calendar consists of a title,
+      zero or more "artefacts" (files with calendar data,
+      in the format used by calendarium-romanum gem)
+      and zero or more child calendars.
+
+      If there is more than one artefact in a single calendar,
+      artefacts are loaded in the given order, which means
+      that in case of conflict the last one always wins.
+      Similarly child calendars always win over parents.
   -->
   <calendar title="české a moravské diecéze">
     <artefact type="packaged" ref="czech-cs" />
 
-    <!-- province Bohemia -->
+    <!-- province Bohemia and it's dioceses -->
     <calendar title="česká církevní provincie">
       <artefact type="packaged" ref="czech-cechy-cs" />
 
@@ -70,7 +96,7 @@
       </calendar>
     </calendar>
 
-    <!-- province Moravia -->
+    <!-- province Moravia and it's dioceses -->
     <calendar title="moravská církevní provincie">
       <artefact type="packaged" ref="czech-morava-cs" />
 

@@ -1,6 +1,6 @@
 # OrdoDO - *Ordo Divini Officii*
 
-Generates an *ordo*/[directory][wikipedia]
+Generates an *ordo* (also known as [directory][wikipedia])
 for a hierarchically organized set
 of Roman Catholic liturgical calendars.
 
@@ -21,13 +21,45 @@ The task of compiling an *ordo* is extremely repetitive
 and can be - completely or at least to a great extent -
 automated. Let `ordodo` do the heavy lifting for you!
 
+## Features
+
+While ordodo is still in an early stage of development,
+you can already see an example of it's output:
+[ordo for dioceses of Czech Republic, year 2016/17](http://yakub.cz/ordo_2016/)
+
+The current sample is a simple HTML page. Support for multiple
+output formats will be added later, with special focus
+on print-ready pdf output.
+
+- [x] liturgical calendar computing
+- [x] variants from proper calendars (with support for unlimited calendar levels)
+- [ ] Gloria and Credo
+- [ ] prefaces and the eucharistic prayer IV
+- [ ] occasional parts of the Roman Canon
+- [ ] Vespers and Compline
+- [ ] votive masses
+- [ ] burial masses
+- [ ] occasional blessings and other rites
+- [ ] support for other date-related directions (often "International day of ..., should be mentioned in the universal prayer")
+
 ## Installation
+
+is not really possible yet. But you can play with `ordodo`
+nevertheless: install Ruby and Bundler, then clone `ordodo`
+sources,
+
+`bundle install`
+
+in the project's root directory to install dependencies
+and then execute `ordodo` like
+
+`bundle exec ruby -Ilib bin/ordodo ...`
 
 ## Basic usage
 
 `$ ordodo myconfig.xml`
 
-generates ordo according to configuration in myconfig.xml
+generates ordo according to configuration in `myconfig.xml`
 for the upcoming liturgical year. Definitely the most common
 task you will use `ordodo` for.
 
@@ -45,9 +77,28 @@ configurations to start with.
 
 ## Configuration
 
-### Localization
+`ordodo`'s main user interface is it's configuration file.
+
+**Philosophy behind it:**
+*ordo* is prepared only once a year, and it's content is "mostly
+the same". As a user you don't want to remember anything about
+`ordodo` - this program used once a year - and it's controls and
+settings. You want to set it up once
+(or have someone set it up for you) - and then it should, if possible,
+just work forever. Once a year you run `ordodo`
+with the configuration from the last year, check that the output
+is correct, send it to print. All done.
+
+See `examples/czech_republic.xml` for a complete and commented
+configuration of an *ordo* for Czech dioceses.
+It uses most features currently available, and mentions
+those which are not used.
 
 ### Preparing calendar data
+
+For calendar computations `ordodo` relies on
+[calendarium-romanum][caro]. It also expects calendar data
+in it's [data format][caro_data].
 
 ### Customization of translation strings and output templates
 
@@ -63,3 +114,5 @@ by Pearson Scott Foresman. The drawing is in public domain.
 
 [dodo_img_source]: https://commons.wikimedia.org/wiki/Raphus_cucullatus#/media/File:Dodo_2_(PSF).png
 [wikipedia]: https://en.wikipedia.org/wiki/Directorium
+[caro]: http://github.com/igneus/calendarium-romanum
+[caro_data]: https://github.com/igneus/calendarium-romanum/tree/master/data
