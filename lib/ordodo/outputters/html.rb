@@ -9,7 +9,20 @@ module Ordodo
       end
 
       def <<(r)
-        @fw.puts record.render(nil, record: r, unprinted_ranks: [CalendariumRomanum::Ranks::FERIAL, CalendariumRomanum::Ranks::MEMORIAL_OPTIONAL])
+        html = record.render(
+          nil, # binding
+          record: r,
+          unprinted_ranks: [
+            CalendariumRomanum::Ranks::SUNDAY_UNPRIVILEGED,
+            CalendariumRomanum::Ranks::FERIAL,
+            CalendariumRomanum::Ranks::MEMORIAL_OPTIONAL
+          ],
+          notbold_ranks: [
+            CalendariumRomanum::Ranks::MEMORIAL_OPTIONAL,
+            CalendariumRomanum::Ranks::COMMEMORATION,
+          ],
+        )
+        @fw.puts html
       end
 
       def finish

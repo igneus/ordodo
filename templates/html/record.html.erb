@@ -18,14 +18,14 @@
             <%= celebration.colour.name[0].upcase %>
           </span>
 
-          <% if unprinted_ranks.include? celebration.rank %>
-          <%= celebration.title %>
-          <% else %>
-          <strong>
-            <span class="celebration-rank"><%= celebration.rank.short_desc %></span>
-            <%= celebration.title %>
-          </strong>
-          <% end %>
+          <% unless notbold_ranks.include? celebration.rank %><strong><% end %>
+            <% unless unprinted_ranks.include? celebration.rank %>
+              <span class="celebration-rank"><%= celebration.rank.short_desc %></span>
+            <% end %>
+            <span class="celebration-title <%= celebration.solemnity? && 'heavy' %>">
+              <%= celebration.title %>
+            </span>
+          <% unless notbold_ranks.include? celebration.rank %></strong><% end %>
         </div>
       </div>
       <% end %>
