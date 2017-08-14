@@ -18,6 +18,9 @@ module Ordodo
       def before_season(season)
       end
 
+      def before_month(month)
+      end
+
       def <<(record)
       end
 

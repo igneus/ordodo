@@ -30,13 +30,18 @@ module Ordodo
       ]
       outputters.each &:prepare
 
-      last_season = nil
+      last_season = last_month = nil
       calendar.each_day do |day_tree|
         record = linearizer.linearize reducer.reduce day_tree
 
         if record.season != last_season
           outputters.each {|o| o.before_season record.season }
           last_season = record.season
+        end
+
+        if record.date.month != last_month
+          outputters.each {|o| o.before_month record.date.month }
+          last_month = record.date.month
         end
 
         outputters.each {|o| o << record }

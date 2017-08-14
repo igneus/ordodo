@@ -27,6 +27,6 @@
 
     <div class="nav">
       <% 1.upto(12) do |month| %>
-      <a href="#<%= month.to_s.rjust(2, '0') %>-01"><%= month %></a>
+      <a href="#month-<%= month %>"><%= month %></a>
       <% end %>
     </div>

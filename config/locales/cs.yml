@@ -3,3 +3,16 @@ cs:
     epiphany: "Tam, kde se slavnost Zjevení Páně překládá na neděli"
     ascension: "Tam, kde se slavnost Nanebevstoupení Páně překládá na neděli"
     corpus_christi: "Tam, kde se slavnost Těla a krve Páně překládá na neděli"
+  month:
+    '1': leden
+    '2': únor
+    '3': březen
+    '4': duben
+    '5': květen
+    '6': červen
+    '7': červenec
+    '8': srpen
+    '9': září
+    '10': říjen
+    '11': listopad
+    '12': prosinec
