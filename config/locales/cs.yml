@@ -16,3 +16,4 @@ cs:
     '10': říjen
     '11': listopad
     '12': prosinec
+  psalter_week: 'Žaltář %{week}. týdne'

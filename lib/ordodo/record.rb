@@ -12,6 +12,10 @@ module Ordodo
     def season
       @entries.first.season
     end
+
+    def psalter_week
+      @entries.first.psalter_week
+    end
   end
 
   # Entry describing one particular solution of a given
@@ -35,5 +39,10 @@ module Ordodo
     attr_reader :day
 
     def_delegators :@day, :celebrations, :season
+
+    def psalter_week
+      w = @day.season_week % 4
+      w == 0 ? 4 : w
+    end
   end
 end

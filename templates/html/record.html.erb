@@ -1,5 +1,7 @@
 <div id="<%= record.date.strftime('%m-%d') %>" class="record">
   <div class="record-header">
+    <span class="psalter"><%= I18n.t 'psalter_week', week: record.psalter_week %></span>
+
     <%= record.date.strftime %>
     <%= I18n.t "weekday.#{record.date.wday}" %>
   </div>
