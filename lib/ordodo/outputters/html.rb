@@ -8,6 +8,10 @@ module Ordodo
         @fw.puts header.render(self)
       end
 
+      def before_season(season)
+        @fw.puts season_header.render(self, season: season)
+      end
+
       def <<(r)
         html = record.render(
           self, # binding
@@ -39,6 +43,10 @@ module Ordodo
 
       def footer
         @footer ||= Tilt.new(template_path('footer.html.erb'))
+      end
+
+      def season_header
+        @season_header ||= Tilt.new(template_path('before_season.html.erb'))
       end
 
       def record

@@ -8,6 +8,10 @@ module Ordodo
     end
 
     attr_reader :entries, :date
+
+    def season
+      @entries.first.season
+    end
   end
 
   # Entry describing one particular solution of a given
@@ -30,6 +34,6 @@ module Ordodo
     # CalendariumRomanum::Day
     attr_reader :day
 
-    def_delegators :@day, :celebrations
+    def_delegators :@day, :celebrations, :season
   end
 end

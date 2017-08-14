@@ -15,6 +15,9 @@ module Ordodo
       def prepare
       end
 
+      def before_season(season)
+      end
+
       def <<(record)
       end
 
