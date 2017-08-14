@@ -2,9 +2,13 @@ require 'spec_helper'
 
 describe 'handling of real examples' do
   let(:config_fullpath) { File.expand_path "../../examples/#{config_file}", __FILE__ }
-  let(:config) { Ordodo::Config.from_xml File.read config_fullpath }
+  let(:config) do
+    Ordodo::Config.from_xml(File.read(config_fullpath)) do |config|
+      config.year = year
+    end
+  end
   let(:year) { 2017 }
-  let(:tree_calendar) { config.create_tree_calendar year }
+  let(:tree_calendar) { config.create_tree_calendar }
   let(:reducer) { Ordodo::TreeReducer.new }
 
   shared_examples 'any example configuration' do
