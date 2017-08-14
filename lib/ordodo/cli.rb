@@ -6,8 +6,12 @@ module Ordodo
 
       begin
         config =
-          File.open(config_path) {|fr| Config.from_xml fr }
-        Generator.new(config).call year
+          File.open(config_path) do |fr|
+          Config.from_xml(fr) do |config|
+            config.year = year if year
+          end
+        end
+        Generator.new(config).call
       rescue ApplicationError => e
         die e.message
       end

@@ -6,6 +6,8 @@ module Ordodo
       @temporale_extensions = []
       @calendars = nil
       @output_directory = nil
+      @year = upcoming_year
+      @title = 'Liturgical Calendar'
 
       @loader = CalendariumRomanum::SanctoraleLoader.new
 
@@ -23,7 +25,9 @@ module Ordodo
                   :temporale_options,
                   :temporale_extensions,
                   :calendars,
-                  :output_directory
+                  :output_directory,
+                  :title,
+                  :year
 
     def self.from_xml(xml)
       begin
@@ -46,6 +50,11 @@ module Ordodo
       new do |c|
         c.locale = doc.root['locale'] || c.locale
 
+        title = doc.root.at('./head/title')
+        if title
+          c.title = title.text
+        end
+
         doc.root.xpath('./temporale/option').each do |option|
           c.temporale_option option['type'], option['feast'], option['apply']
         end
@@ -54,14 +63,16 @@ module Ordodo
           c.temporale_extension ext.text
         end
 
-        root_calendar = doc.root.xpath('./calendar').first
+        root_calendar = doc.root.at('./calendar')
         if root_calendar
           c.calendars = c.load_calendars(root_calendar)
         end
+
+        yield c if block_given?
       end
     end
 
-    def create_tree_calendar(year)
+    def create_tree_calendar
       TreeCalendar.new(year, calendars, temporale_extensions, temporale_options)
     end
 
@@ -158,6 +169,18 @@ module Ordodo
       else
         raise Error.new("unsupported artefact type #{type.inspect}")
       end
+    end
+
+    def upcoming_year
+      today = Date.today
+      civil = today.year
+
+      if CalendariumRomanum::Temporale::Dates
+          .first_advent_sunday(civil) > today
+        return civil
+      end
+
+      civil + 1
     end
   end
 end

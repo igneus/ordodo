@@ -5,15 +5,7 @@ module Ordodo
       @config = config
     end
 
-    def call(year=nil)
-      generate year
-    end
-
-    private
-
-    def generate(year=nil)
-      year ||= upcoming_year
-
+    def call
       if @config.calendars.nil?
         raise ApplicationError.new('no calendars loaded. Please, specify at least one calendar.')
       end
@@ -21,19 +13,19 @@ module Ordodo
       puts "Loaded calendars:"
       @config.calendars.print_tree
       puts
-      puts "Generating ordo for liturgical year #{year}"
+      puts "Generating ordo for liturgical year #{@config.year}"
 
       reducer = TreeReducer.new
       linearizer = Linearizer.new
 
-      calendar = @config.create_tree_calendar(year)
+      calendar = @config.create_tree_calendar
 
       outputters = [
-        Outputters::Console.new(year),
+        Outputters::Console.new(@config),
         Outputters::HTML.new(
-          year,
+          @config,
           templates_dir: 'templates/html',
-          output_dir: "ordo_#{year}"
+          output_dir: "ordo_#{@config.year}"
         )
       ]
       outputters.each &:prepare
@@ -44,18 +36,6 @@ module Ordodo
       end
 
       outputters.each &:finish
-    end
-
-    def upcoming_year
-      today = Date.today
-      civil = today.year
-
-      if CalendariumRomanum::Temporale::Dates
-          .first_advent_sunday(civil) > today
-        return civil
-      end
-
-      civil + 1
     end
   end
 end

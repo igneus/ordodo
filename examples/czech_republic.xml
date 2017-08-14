@@ -3,6 +3,9 @@
 <!DOCTYPE ordodo SYSTEM "../xml/ordodo.dtd">
 
 <ordodo locale="cs">
+  <!--
+      Metainformation for your own use
+  -->
   <meta>
     <title>Liturgický kalendář pro české a moravské diecéze</title>
     <description>
@@ -10,6 +13,13 @@
       of Czech Republic.
     </description>
   </meta>
+
+  <!--
+      Titles used by ordodo
+  -->
+  <head>
+    <title>Liturgický kalendář pro české a moravské diecéze</title>
+  </head>
 
   <temporale>
     <!--

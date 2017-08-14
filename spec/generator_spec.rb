@@ -8,7 +8,7 @@ describe Ordodo::Generator do
       let(:config) { Ordodo::Config.new }
 
       it 'fails' do
-        expect { generator.call(2017) }
+        expect { generator.call }
           .to raise_exception(Ordodo::ApplicationError, /no calendars/)
       end
     end

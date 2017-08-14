@@ -10,6 +10,13 @@
     </description>
   </meta>
 
+  <!--
+      Titles used by ordodo
+  -->
+  <head>
+    <title>General Roman Calendar</title>
+  </head>
+
   <temporale>
     <!--
         Transfer of Epiphany, Ascension and Corpus Christi

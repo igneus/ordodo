@@ -1,11 +1,14 @@
 <!-- DTD for the ordodo configuration file -->
 
-<!ELEMENT ordodo (meta?,temporale?,calendar?)>
+<!ELEMENT ordodo (meta?,head?,temporale?,calendar?)>
 <!ATTLIST ordodo locale CDATA "en">
 
 <!ELEMENT meta (title?,description?)>
 <!ELEMENT title (#PCDATA)>
 <!ELEMENT description (#PCDATA)>
+
+<!ELEMENT head (title?)>
+<!ELEMENT title (#PCDATA)>
 
 <!ELEMENT temporale (extension*,option*)>
 <!ELEMENT extension (#PCDATA)>

@@ -5,12 +5,12 @@ module Ordodo
         FileUtils.mkdir_p(@output_dir)
         @fw = File.open(File.join(@output_dir, 'index.html'), 'w')
 
-        @fw.puts header.render(nil, year: @year)
+        @fw.puts header.render(self)
       end
 
       def <<(r)
         html = record.render(
-          nil, # binding
+          self, # binding
           record: r,
           unprinted_ranks: [
             CalendariumRomanum::Ranks::SUNDAY_UNPRIVILEGED,
@@ -26,7 +26,7 @@ module Ordodo
       end
 
       def finish
-        @fw.puts footer.render
+        @fw.puts footer.render(self)
 
         @fw.close
       end
