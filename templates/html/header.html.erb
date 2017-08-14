@@ -6,8 +6,9 @@
     <meta name="generator" value="ordodo https://github.com/igneus/ordodo">
     <title><%= title %> <%= year %>&ndash;<%= year + 1 %></title>
     <style>
+      body { max-width: 600px; margin: 1em auto; }
       h1, h2, h3, .nav { text-align: center; }
-      .record { max-width: 600px; margin: 1em auto; border-bottom: 1px solid black; }
+      .record { border-bottom: 1px solid black; }
 
       .nowrap { white-space: nowrap; }
 
@@ -23,7 +24,11 @@
     </style>
   </head>
   <body>
-    <h1><%= title %> <span class="nowrap"><%= year %>&ndash;<%= year + 1 %></span></h1>
+    <h1>
+      <%= title %>
+      <br>
+      <span class="nowrap"><%= year %>&ndash;<%= year + 1 %></span>
+    </h1>
 
     <div class="nav">
       <% 1.upto(12) do |month| %>
