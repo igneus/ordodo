@@ -1,4 +1,4 @@
-<div class="record">
+<div id="<%= record.date.strftime('%m-%d') %>" class="record">
   <div class="record-header">
     <%= record.date.strftime %>
     <%= I18n.t "weekday.#{record.date.wday}" %>

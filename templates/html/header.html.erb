@@ -6,7 +6,7 @@
     <meta name="generator" value="ordodo https://github.com/igneus/ordodo">
     <title>Liturgical Calendar <%= year %></title>
     <style>
-      h1, h2, h3 { text-align: center; }
+      h1, h2, h3, .nav { text-align: center; }
       .record { max-width: 600px; margin: 1em auto; border-bottom: 1px solid black; }
 
       .nowrap { white-space: nowrap; }
@@ -24,3 +24,9 @@
   </head>
   <body>
     <h1>Liturgical Calendar <%= year %></h1>
+
+    <div class="nav">
+      <% 1.upto(12) do |month| %>
+      <a href="#<%= month.to_s.rjust(2, '0') %>-01"><%= month %></a>
+      <% end %>
+    </div>
