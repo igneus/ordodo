@@ -108,7 +108,7 @@ in it's [data format][caro_data].
 
 ## Credits
 
-The `ordodo` logo incorporates
+`ordodo` logo incorporates
 a [drawing of a dodo][dodo_img_source]
 by Pearson Scott Foresman. The drawing is in public domain.
 
