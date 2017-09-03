@@ -17,3 +17,12 @@ cs:
     '11': listopad
     '12': prosinec
   psalter_week: 'Žaltář %{week}. týdne'
+  office:
+    ferial: Denní modlitba církve i mše feriální.
+    feast: Modlitba uprostřed dne má žalmy z příslušného dne žaltáře.
+    memorial: Denní modlitba církve i mše z památky.
+    commemoration: |
+      V modlitbě se čtením se může přidat hagiografická lekce
+      a v ranních chválách a nešporách připomínka %{title}.
+      Ve mši se může feriální vstupní modlitba nahradit
+      modlitbou z připomínky.

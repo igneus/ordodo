@@ -14,6 +14,13 @@
       <% end %>
 
       <% entry.celebrations.each do |celebration| %>
+      <% if celebration.rank == CalendariumRomanum::Ranks::COMMEMORATION %>
+        <div class="celebration commemoration">
+          <%= I18n.t 'office.commemoration', title: "<span class=\"title\">#{celebration.title}</span>" %>
+        </div>
+        <% next %>
+      <% end %>
+
       <div class="celebration">
         <div class="celebration-title">
           <span class="colour colour-<%= celebration.colour.symbol %>" title="<%= celebration.colour.name %>">
@@ -34,6 +41,15 @@
               <%= celebration.title %>
             </span>
           <% unless notbold_ranks.include? celebration.rank %></strong><% end %>
+        </div>
+        <div>
+          <% if celebration.rank == CalendariumRomanum::Ranks::FERIAL %>
+            <%= I18n.t 'office.ferial' %>
+          <% elsif celebration.rank.feast? %>
+            <%= I18n.t 'office.feast' %>
+          <% elsif celebration.rank.memorial? %>
+            <%= I18n.t 'office.memorial' %>
+          <% end %>
         </div>
       </div>
       <% end %>
