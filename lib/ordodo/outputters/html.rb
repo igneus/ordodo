@@ -23,6 +23,7 @@ module Ordodo
           unprinted_ranks: [
             CalendariumRomanum::Ranks::SUNDAY_UNPRIVILEGED,
             CalendariumRomanum::Ranks::FERIAL,
+            CalendariumRomanum::Ranks::FERIAL_PRIVILEGED,
             CalendariumRomanum::Ranks::MEMORIAL_OPTIONAL
           ],
           notbold_ranks: [
