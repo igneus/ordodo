@@ -43,12 +43,12 @@
           <% unless notbold_ranks.include? celebration.rank %></strong><% end %>
         </div>
         <div>
-          <% if celebration.rank == CalendariumRomanum::Ranks::FERIAL %>
+          <% if celebration.office_ferial? %>
             <%= I18n.t 'office.ferial' %>
-          <% elsif celebration.rank.feast? %>
-            <%= I18n.t 'office.feast' %>
-          <% elsif celebration.rank.memorial? %>
+          <% elsif celebration.office_memorial? %>
             <%= I18n.t 'office.memorial' %>
+          <% elsif celebration.office_festal? || celebration.office_solemnity? %>
+            <%= I18n.t "office.daytime_#{celebration.daytime_prayer}" %>
           <% end %>
         </div>
       </div>

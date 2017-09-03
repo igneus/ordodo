@@ -1,10 +1,13 @@
 require 'date'
+require 'delegate'
 require 'tilt'
 
 require 'calendarium-romanum'
 require 'i18n'
 require 'nokogiri'
 require 'rubytree'
+
+CR = CalendariumRomanum
 
 %w{
 version
@@ -13,6 +16,7 @@ cli
 config
 generator
 linearizer
+office
 outputters/outputter
 outputters/console
 outputters/html

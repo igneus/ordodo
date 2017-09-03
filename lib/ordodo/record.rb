@@ -27,6 +27,8 @@ module Ordodo
 
     def initialize(titles, day)
       @titles, @day = titles, day
+      @celebrations =
+        day.celebrations.collect {|c| Office.new(day, c) }
     end
 
     # Usually the Array contains a single title describing
@@ -38,7 +40,10 @@ module Ordodo
     # CalendariumRomanum::Day
     attr_reader :day
 
-    def_delegators :@day, :celebrations, :season
+    # Array of Ordodo::Office
+    attr_reader :celebrations
+
+    def_delegators :@day, :season
 
     def psalter_week
       w = @day.season_week % 4
