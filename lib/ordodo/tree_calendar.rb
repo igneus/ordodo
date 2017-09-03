@@ -7,32 +7,30 @@ module Ordodo
         temporale_options[:always]&.dup || {}
       temporale_options_always[:extensions] = temporale_extensions
 
-      @temporale_factory = lambda do |year|
+      @temporale =
         CalendariumRomanum::Temporale
           .new(
             year,
             **temporale_options_always
           )
-      end
 
       @calendar_tree = build_calendar_tree sanctorale_tree
 
       if temporale_options[:optional]
         # add a branch for each optional Temporale option
         temporale_options[:optional][:transfer_to_sunday].each do |transferred|
-          factory = lambda do |year|
-            options = temporale_options_always.dup
-            options[:transfer_to_sunday] =
-              (options[:transfer_to_sunday] || []) + [transferred]
+          options = temporale_options_always.dup
+          options[:transfer_to_sunday] =
+            (options[:transfer_to_sunday] || []) + [transferred]
+          temporale =
             CalendariumRomanum::Temporale
               .new(
                 year,
                 **options
               )
-          end
 
           sanctorale = sanctorale_tree.content
-          calendar = CalendariumRomanum::Calendar.new(@year, sanctorale, factory)
+          calendar = CalendariumRomanum::Calendar.new(@year, sanctorale, temporale)
           variant_name = I18n.t "transfer.#{transferred}"
           @calendar_tree << Tree::TreeNode.new(variant_name, calendar)
         end
@@ -54,7 +52,7 @@ module Ordodo
 
     def build_calendar_tree(sanctorale_tree)
       sanctorale = sanctorale_tree.content
-      calendar = CalendariumRomanum::Calendar.new(@year, sanctorale, @temporale_factory)
+      calendar = CalendariumRomanum::Calendar.new(@year, sanctorale, @temporale)
       node = Tree::TreeNode.new(sanctorale_tree.name, calendar)
 
       sanctorale_tree.children.each do |child|

@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/igneus/calendarium-romanum.git
-  revision: 39538da2e41baa5456d763de87b42d387e306ef7
-  ref: 39538da
+  revision: f0addef61928b9d5439a3a7cf674935978114fc6
+  ref: f0addef
   specs:
-    calendarium-romanum (0.3.0)
+    calendarium-romanum (0.4.0)
       i18n (~> 0.6)
       roman-numerals (~> 0.3)
       thor (~> 0.18)
@@ -35,7 +35,7 @@ GEM
       json (~> 1.8)
       structured_warnings (~> 0.2)
     structured_warnings (0.3.0)
-    thor (0.19.4)
+    thor (0.20.0)
     tilt (2.0.8)
 
 PLATFORMS
