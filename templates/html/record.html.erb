@@ -22,7 +22,13 @@
 
           <% unless notbold_ranks.include? celebration.rank %><strong><% end %>
             <% unless unprinted_ranks.include? celebration.rank %>
-              <span class="celebration-rank"><%= celebration.rank.short_desc %></span>
+              <span class="celebration-rank">
+                <% if primary_solemnity? celebration %>
+                  <%= CalendariumRomanum::Ranks::SOLEMNITY_GENERAL.short_desc %>
+                <% else %>
+                  <%= celebration.rank.short_desc %>
+                <% end %>
+              </span>
             <% end %>
             <span class="celebration-title <%= celebration.solemnity? && 'heavy' %>">
               <%= celebration.title %>

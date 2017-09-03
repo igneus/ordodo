@@ -40,6 +40,17 @@ module Ordodo
         @fw.close
       end
 
+      # helpers used in templates
+
+      # some of the 'primary liturgical days' are customarily
+      # called "solemnities", others not
+      PRIMARY_SOLEMNITIES =
+        %i(nativity epiphany easter_sunday ascension pentecost).freeze
+      def primary_solemnity?(celebration)
+        celebration.rank == CalendariumRomanum::Ranks::PRIMARY &&
+          PRIMARY_SOLEMNITIES.include?(celebration.symbol)
+      end
+
       private
 
       def header
