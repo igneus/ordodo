@@ -5,7 +5,7 @@ module Ordodo
         FileUtils.mkdir_p(@output_dir)
         @fw = File.open(File.join(@output_dir, 'index.html'), 'w')
 
-        @fw.puts header.render(self)
+        @fw.puts header.render(self, **@globals)
       end
 
       def before_season(season)

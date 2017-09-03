@@ -3,10 +3,11 @@ module Ordodo
     class Outputter
       extend Forwardable
 
-      def initialize(config, output_dir: nil, templates_dir: nil)
+      def initialize(config, output_dir: nil, templates_dir: nil, globals: {})
         @config = config
         @output_dir = output_dir
         @templates_dir = templates_dir
+        @globals = globals
       end
 
       attr_reader :config

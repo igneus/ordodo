@@ -32,7 +32,7 @@
     </h1>
 
     <div class="nav">
-      <% 1.upto(12) do |month| %>
-      <a href="#month-<%= month %>"><%= month %></a>
+      <% months.each do |month| %>
+      <a href="#month-<%= month.year %>-<%= month.month %>"><%= month.month %></a>
       <% end %>
     </div>

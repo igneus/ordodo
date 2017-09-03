@@ -20,12 +20,15 @@ module Ordodo
 
       calendar = @config.create_tree_calendar
 
+      globals = {months: months}
+
       outputters = [
-        Outputters::Console.new(@config),
+        Outputters::Console.new(@config, globals: globals),
         Outputters::HTML.new(
           @config,
           templates_dir: 'templates/html',
-          output_dir: "ordo_#{@config.year}"
+          output_dir: "ordo_#{@config.year}",
+          globals: globals,
         )
       ]
       outputters.each &:prepare
@@ -40,7 +43,7 @@ module Ordodo
         end
 
         if record.date.month != last_month
-          outputters.each {|o| o.before_month record.date.month }
+          outputters.each {|o| o.before_month record.date }
           last_month = record.date.month
         end
 
@@ -48,6 +51,22 @@ module Ordodo
       end
 
       outputters.each &:finish
+    end
+
+    private
+
+    # returns an Array of Dates of beginnings of months
+    # in the liturgical year (only year and month are significant -
+    # used to generate month navigation)
+    def months
+      temporale = CalendariumRomanum::Temporale.new(@config.year)
+      first_month = temporale.start_date.month
+      last_month = temporale.end_date.month
+
+      (first_month .. 12)
+        .collect {|m| Date.new(@config.year, m, 1) } \
+      + (1 .. last_month)
+        .collect {|m| Date.new(@config.year + 1, m, 1) }
     end
   end
 end
