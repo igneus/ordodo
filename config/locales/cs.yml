@@ -35,4 +35,5 @@ cs:
       feast: Nešpory 1. z následujícího svátku.
     compline:
       sunday_first: Modlitba před spaním 1. nedělní.
+      sunday_second: Modlitba před spaním 2. nedělní.
   or: 'Nebo:'

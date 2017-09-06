@@ -55,6 +55,11 @@
             <%= I18n.t "office.daytime.#{celebration.daytime_prayer}" %>
           <% end %>
         </div>
+        <% if celebration.office_solemnity? %>
+          <div class="compline">
+            <%= I18n.t 'office.compline.sunday_second' %>
+          </div>
+        <% end %>
       </div>
       <% if entry.vespers_from_following? %>
         <div class="vespers">
