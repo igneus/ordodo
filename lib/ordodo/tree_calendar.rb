@@ -30,7 +30,7 @@ module Ordodo
               )
 
           sanctorale = sanctorale_tree.content
-          calendar = CalendariumRomanum::Calendar.new(@year, sanctorale, temporale)
+          calendar = CalendariumRomanum::Calendar.new(@year, sanctorale, temporale, vespers: true)
           variant_name = I18n.t "transfer.#{transferred}"
           @calendar_tree << Tree::TreeNode.new(variant_name, calendar)
         end
@@ -52,7 +52,7 @@ module Ordodo
 
     def build_calendar_tree(sanctorale_tree)
       sanctorale = sanctorale_tree.content
-      calendar = CalendariumRomanum::Calendar.new(@year, sanctorale, @temporale)
+      calendar = CalendariumRomanum::Calendar.new(@year, sanctorale, @temporale, vespers: true)
       node = Tree::TreeNode.new(sanctorale_tree.name, calendar)
 
       sanctorale_tree.children.each do |child|

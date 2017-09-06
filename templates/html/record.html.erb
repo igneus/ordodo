@@ -13,12 +13,16 @@
         <div class="variant-heading"><%= entry.titles.join(', ') %>:</div>
       <% end %>
 
-      <% entry.celebrations.each do |celebration| %>
+      <% entry.celebrations.each_with_index do |celebration, ci| %>
       <% if celebration.rank == CalendariumRomanum::Ranks::COMMEMORATION %>
         <div class="celebration commemoration">
           <%= I18n.t 'office.commemoration', title: "<span class=\"title\">#{celebration.title}</span>" %>
         </div>
         <% next %>
+      <% end %>
+
+      <% if ci > 0 %>
+      <div class="or"><%= I18n.t 'or' %></div>
       <% end %>
 
       <div class="celebration">
@@ -48,10 +52,26 @@
           <% elsif celebration.office_memorial? %>
             <%= I18n.t 'office.memorial' %>
           <% elsif celebration.office_festal? || celebration.office_solemnity? %>
-            <%= I18n.t "office.daytime_#{celebration.daytime_prayer}" %>
+            <%= I18n.t "office.daytime.#{celebration.daytime_prayer}" %>
           <% end %>
         </div>
       </div>
+      <% if entry.vespers_from_following? %>
+        <div class="vespers">
+          <% if entry.vespers_from_following_sunday? %>
+            <%= I18n.t 'office.vespers_from_following.sunday' %>
+          <% elsif entry.vespers_from_following_feast? %>
+            <%= I18n.t 'office.vespers_from_following.feast' %>
+          <% else %>
+            <%= I18n.t 'office.vespers_from_following.solemnity' %>
+          <% end %>
+        </div>
+        <% unless entry.vespers_from_following_sunday? %>
+          <div class="compline">
+            <%= I18n.t 'office.compline.sunday_first' %>
+          </div>
+        <% end %>
+      <% end %>
       <% end %>
     </div>
     <% end %>

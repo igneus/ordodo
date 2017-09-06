@@ -25,6 +25,14 @@ cs:
       a v ranních chválách a nešporách připomínka %{title}.
       Ve mši se může feriální vstupní modlitba nahradit
       modlitbou z připomínky.
-    daytime_psalter: Modlitba uprostřed dne má žalmy z příslušného dne žaltáře.
-    daytime_supplementary: Modlitba uprostřed dne má žalmy z doplňovacího cyklu.
-    daytime_sunday: Modlitba uprostřed dne má nedělní žalmy z 1. týdne.
+    daytime:
+      psalter: Modlitba uprostřed dne má žalmy z příslušného dne žaltáře.
+      supplementary: Modlitba uprostřed dne má žalmy z doplňovacího cyklu.
+      sunday: Modlitba uprostřed dne má nedělní žalmy z 1. týdne.
+    vespers_from_following:
+      sunday: Nešpory 1. z následující neděle.
+      solemnity: Nešpory 1. z následující slavnosti.
+      feast: Nešpory 1. z následujícího svátku.
+    compline:
+      sunday_first: Modlitba před spaním 1. nedělní.
+  or: 'Nebo:'
