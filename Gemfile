@@ -7,6 +7,8 @@ gem 'i18n'
 gem 'nokogiri'
 gem 'rubytree'
 gem 'tilt'
+gem 'cells'
+gem 'cells-erb'
 
 group :development, :test do
   gem 'rake'

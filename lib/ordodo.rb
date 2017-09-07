@@ -2,6 +2,8 @@ require 'date'
 require 'delegate'
 require 'tilt'
 
+require 'cells'
+require 'cells-erb'
 require 'calendarium-romanum'
 require 'i18n'
 require 'nokogiri'
@@ -20,6 +22,10 @@ office
 outputters/outputter
 outputters/console
 outputters/html
+cells/cell
+cells/record
+cells/entry
+cells/celebration
 record
 tree_calendar
 tree_reducer

@@ -17,20 +17,7 @@ module Ordodo
       end
 
       def <<(r)
-        html = record.render(
-          self, # binding
-          record: r,
-          unprinted_ranks: [
-            CalendariumRomanum::Ranks::SUNDAY_UNPRIVILEGED,
-            CalendariumRomanum::Ranks::FERIAL,
-            CalendariumRomanum::Ranks::FERIAL_PRIVILEGED,
-            CalendariumRomanum::Ranks::MEMORIAL_OPTIONAL
-          ],
-          notbold_ranks: [
-            CalendariumRomanum::Ranks::MEMORIAL_OPTIONAL,
-            CalendariumRomanum::Ranks::COMMEMORATION,
-          ],
-        )
+        html = Cells::Record.(r).()
         @fw.puts html
       end
 
@@ -38,17 +25,6 @@ module Ordodo
         @fw.puts footer.render(self)
 
         @fw.close
-      end
-
-      # helpers used in templates
-
-      # some of the 'primary liturgical days' are customarily
-      # called "solemnities", others not
-      PRIMARY_SOLEMNITIES =
-        %i(nativity epiphany easter_sunday ascension pentecost).freeze
-      def primary_solemnity?(celebration)
-        celebration.rank == CalendariumRomanum::Ranks::PRIMARY &&
-          PRIMARY_SOLEMNITIES.include?(celebration.symbol)
       end
 
       private

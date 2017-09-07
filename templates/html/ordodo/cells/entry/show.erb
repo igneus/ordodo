@@ -1,0 +1,20 @@
+<div class="entry">
+  <% if nth_entry? %>
+    <div class="variant-heading"><%= heading %></div>
+  <% end %>
+
+  <% celebrations.each do |celebration| %>
+    <%= celebration.() %>
+  <% end %>
+
+  <% if vespers_from_following? %>
+    <div class="vespers">
+      <%= vespers %>
+    </div>
+    <% if compline_worth_mentioning? %>
+      <div class="compline">
+        <%= I18n.t 'office.compline.sunday_first' %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

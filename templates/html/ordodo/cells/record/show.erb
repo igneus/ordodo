@@ -1,0 +1,14 @@
+<div id="<%= anchor %>" class="record">
+  <div class="record-header">
+    <span class="psalter"><%= psalter_week %></span>
+
+    <%= date %>
+    <%= weekday %>
+  </div>
+
+  <div class="entries">
+    <% entries.each_with_index do |entry| %>
+      <%= entry.() %>
+    <% end %>
+  </div>
+</div>

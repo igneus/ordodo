@@ -1,0 +1,28 @@
+<% if nth_celebration? %>
+  <div class="or"><%= I18n.t 'or' %></div>
+<% end %>
+
+<div class="celebration">
+  <div class="celebration-title">
+    <span class="<%= colour_css %>" title="<%= colour_name %>">
+      <%= colour_name[0].upcase %>
+    </span>
+
+    <% if title_bold? %><strong><% end %>
+    <% if print_rank? %>
+      <span class="celebration-rank"><%= rank %></span>
+    <% end %>
+    <span class="celebration-title <%= title_heavy? && 'heavy' %>">
+      <%= title %>
+    </span>
+    <% if title_bold? %></strong><% end %>
+  </div>
+
+  <% if office %>
+    <div><%= office %></div>
+  <% end %>
+
+  <% if compline %>
+    <div class="compline"><%= compline %></div>
+  <% end %>
+</div>
