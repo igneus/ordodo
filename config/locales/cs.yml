@@ -25,6 +25,11 @@ cs:
       a v ranních chválách a nešporách připomínka %{title}.
       Ve mši se může feriální vstupní modlitba nahradit
       modlitbou z připomínky.
+    commemoration_no_vespers: |
+      V modlitbě se čtením se může přidat hagiografická lekce
+      a v ranních chválách připomínka %{title}.
+      V ranní mši se může feriální vstupní modlitba nahradit
+      modlitbou z připomínky.
     daytime:
       psalter: Modlitba uprostřed dne má žalmy z příslušného dne žaltáře.
       supplementary: Modlitba uprostřed dne má žalmy z doplňovacího cyklu.

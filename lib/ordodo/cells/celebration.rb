@@ -30,11 +30,11 @@ module Ordodo
       end
 
       def commemoration_text
-        if commemoration?
-          return I18n.t('office.commemoration', title: "<span class=\"title\">#{model.title}</span>")
-        end
+        return nil unless commemoration?
 
-        nil
+        tid = 'office.commemoration'
+        tid += '_no_vespers' if options[:vespers_from_following]
+        return I18n.t(tid, title: "<span class=\"title\">#{model.title}</span>")
       end
 
       def colour_css
