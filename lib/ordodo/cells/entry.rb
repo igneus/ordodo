@@ -32,6 +32,11 @@ module Ordodo
           I18n.t 'office.vespers_from_following.solemnity'
         end
       end
+
+      def compline
+        vespers_from_following? &&
+          I18n.t('office.compline.sunday_first')
+      end
     end
   end
 end
