@@ -12,7 +12,7 @@ module Ordodo
       end
 
       def date
-        model.date.strftime
+        model.date.strftime(I18n.t('date_format'))
       end
 
       def weekday

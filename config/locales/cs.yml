@@ -1,4 +1,5 @@
 cs:
+  date_format: '%d. %m. %Y'
   transfer:
     epiphany: "Tam, kde se slavnost Zjevení Páně překládá na neděli"
     ascension: "Tam, kde se slavnost Nanebevstoupení Páně překládá na neděli"
