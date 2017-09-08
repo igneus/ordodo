@@ -1,6 +1,8 @@
 module Ordodo
   module Cells
     class Entry < Cell
+      def_delegators :model, :vespers_from_following?
+
       def offices
         model.offices.each_with_index.collect do |office, i|
           Cells::Office.(
@@ -17,10 +19,6 @@ module Ordodo
 
       def heading
         model.titles.join(', ') + ':'
-      end
-
-      def vespers_from_following?
-        model.vespers_from_following?
       end
 
       def compline_worth_mentioning?

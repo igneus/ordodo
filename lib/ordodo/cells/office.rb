@@ -13,6 +13,8 @@ module Ordodo
         CalendariumRomanum::Ranks::COMMEMORATION,
       ].freeze
 
+      def_delegators :model, :title
+
       def show
         if commemoration?
           render 'commemoration'
@@ -51,10 +53,6 @@ module Ordodo
 
       def title_heavy?
         model.solemnity?
-      end
-
-      def title
-        model.title
       end
 
       def print_rank?
