@@ -27,7 +27,7 @@ outputters/html
 cells/cell
 cells/record
 cells/entry
-cells/celebration
+cells/office
 tree_calendar
 tree_reducer
 }.each do |f|

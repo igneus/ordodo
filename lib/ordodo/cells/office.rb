@@ -1,6 +1,6 @@
 module Ordodo
   module Cells
-    class Celebration < Cell
+    class Office < Cell
       UNPRINTED_RANKS = [
         CalendariumRomanum::Ranks::SUNDAY_UNPRIVILEGED,
         CalendariumRomanum::Ranks::FERIAL,

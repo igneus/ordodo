@@ -3,7 +3,7 @@ module Ordodo
     class Entry < Cell
       def celebrations
         model.celebrations.each_with_index.collect do |celebration, i|
-          Cells::Celebration.(
+          Cells::Office.(
             celebration,
             order: i,
             vespers_from_following: vespers_from_following?,
