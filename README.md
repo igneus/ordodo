@@ -36,7 +36,7 @@ on print-ready pdf output.
 - [ ] Gloria and Credo
 - [ ] prefaces and the eucharistic prayer IV
 - [ ] occasional parts of the Roman Canon
-- [ ] Vespers and Compline
+- [x] Divine Office hints (Vespers, Compline, Daytime Prayer)
 - [ ] votive masses
 - [ ] burial masses
 - [ ] occasional blessings and other rites
