@@ -18,7 +18,9 @@ cli
 config
 generator
 linearizer
-office
+models/entry
+models/office
+models/record
 outputters/outputter
 outputters/console
 outputters/html
@@ -26,7 +28,6 @@ cells/cell
 cells/record
 cells/entry
 cells/celebration
-record
 tree_calendar
 tree_reducer
 }.each do |f|
