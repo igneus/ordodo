@@ -1,10 +1,10 @@
 module Ordodo
   module Cells
     class Entry < Cell
-      def celebrations
-        model.celebrations.each_with_index.collect do |celebration, i|
+      def offices
+        model.offices.each_with_index.collect do |office, i|
           Cells::Office.(
-            celebration,
+            office,
             order: i,
             vespers_from_following: vespers_from_following?,
           )

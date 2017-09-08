@@ -23,13 +23,13 @@ module Ordodo
 
       def print_day(day)
         spacer = ' ' * 11
-        day.celebrations.each_with_index do |c, i|
+        day.offices.each_with_index do |o, i|
           print spacer if i > 0
-          print "#{c.title}"
+          print "#{o.title}"
 
-          if c.rank >= CalendariumRomanum::Ranks::MEMORIAL_PROPER ||
-             c.rank < CalendariumRomanum::Ranks::FERIAL
-            print ", #{c.rank.short_desc}"
+          if o.rank >= CalendariumRomanum::Ranks::MEMORIAL_PROPER ||
+             o.rank < CalendariumRomanum::Ranks::FERIAL
+            print ", #{o.rank.short_desc}"
           end
 
           puts

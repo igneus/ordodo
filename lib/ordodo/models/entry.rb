@@ -8,7 +8,7 @@ module Ordodo
 
     def initialize(titles, day)
       @titles, @day = titles, day
-      @celebrations =
+      @offices =
         day.celebrations.collect {|c| Office.new(day, c) }
     end
 
@@ -22,7 +22,7 @@ module Ordodo
     attr_reader :day
 
     # Array of Ordodo::Office
-    attr_reader :celebrations
+    attr_reader :offices
 
     def_delegators :@day, :season, :vespers_from_following?
 
