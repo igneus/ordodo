@@ -24,7 +24,7 @@ module Ordodo
     # Array of Ordodo::Office
     attr_reader :offices
 
-    def_delegators :@day, :season, :vespers_from_following?
+    def_delegators :@day, :season, :vespers, :vespers_from_following?
 
     def psalter_week
       w = @day.season_week % 4
@@ -36,10 +36,10 @@ module Ordodo
     end
 
     def vespers_from_following_sunday?
-      rank = day.vespers&.rank
+      rank = vespers&.rank
 
       rank == CalendariumRomanum::Ranks::SUNDAY_UNPRIVILEGED ||
-        (rank == CalendariumRomanum::Ranks::PRIMARY && day.date.saturday?)
+        (rank == CalendariumRomanum::Ranks::PRIMARY && day.date.saturday? && vespers.symbol.nil?)
     end
   end
 end
