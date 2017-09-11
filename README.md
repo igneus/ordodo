@@ -23,9 +23,8 @@ automated. Let `ordodo` do the heavy lifting for you!
 
 ## Features
 
-While ordodo is still in an early stage of development,
-you can already see an example of it's output:
-[ordo for dioceses of Czech Republic, year 2016/17](http://yakub.cz/ordo_2016/)
+**Example output:**
+[Ordo for dioceses of Czech Republic, year 2016/17](http://yakub.cz/ordo_2016/)
 
 The current sample is a simple HTML page. Support for multiple
 output formats will be added later, with special focus
