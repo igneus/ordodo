@@ -8,7 +8,6 @@
 <!ELEMENT description (#PCDATA)>
 
 <!ELEMENT head (title?)>
-<!ELEMENT title (#PCDATA)>
 
 <!ELEMENT temporale (extension*,option*)>
 <!ELEMENT extension (#PCDATA)>
