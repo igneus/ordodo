@@ -24,7 +24,11 @@ automated. Let `ordodo` do the heavy lifting for you!
 ## Features
 
 **Example output:**
-[Ordo for dioceses of Czech Republic, year 2016/17](http://yakub.cz/ordo_2016/)
+
+* Ordo for dioceses of Czech Republic:
+  - [2016/17](http://yakub.cz/ordo_2016/)
+  - [2017/18](http://yakub.cz/ordo_2017/)
+  - [2018/19](http://yakub.cz/ordo_2018/)
 
 The current sample is a simple HTML page. Support for multiple
 output formats will be added later, with special focus
