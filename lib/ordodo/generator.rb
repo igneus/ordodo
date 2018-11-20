@@ -27,7 +27,8 @@ module Ordodo
         Outputters::HTML.new(
           @config,
           templates_dir: 'templates/html',
-          output_dir: "ordo_#{@config.year}",
+          output_dir: @config.output_dir,
+          output_filename: @config.output_filename,
           globals: globals,
         )
       ]

@@ -3,7 +3,8 @@ module Ordodo
     class HTML < Outputter
       def prepare
         FileUtils.mkdir_p(@output_dir)
-        @fw = File.open(File.join(@output_dir, 'index.html'), 'w')
+	   # filename = 'index_' + @output_filename + '.html'
+        @fw = File.open(File.join(@output_dir, @output_filename), 'w')
 
         @fw.puts header.render(self, **@globals)
       end
