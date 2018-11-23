@@ -107,7 +107,7 @@ in it's [data format][caro_data].
 
 ## License
 
-## Author
+MIT
 
 ## Credits
 
