@@ -18,6 +18,12 @@ module Ordodo
           puts
         end
       end
+      
+      def finish
+      
+          puts "Ordo written to #{@output_dir}/#{@output_filename}"
+      
+      end
 
       private
 

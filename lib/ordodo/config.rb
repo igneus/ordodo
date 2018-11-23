@@ -4,10 +4,10 @@ module Ordodo
       @locale = :en
       @temporale_options = {}
       @temporale_extensions = []
-      @calendars = nil
-      @output_directory = nil
       @year = upcoming_year
       @title = 'Liturgical Calendar'
+      @output_dir = nil
+      @output_filename = 'ordodo_out'
 
       @loader = CalendariumRomanum::SanctoraleLoader.new
 
@@ -25,7 +25,8 @@ module Ordodo
                   :temporale_options,
                   :temporale_extensions,
                   :calendars,
-                  :output_directory,
+                  :output_dir,
+                  :output_filename,
                   :title,
                   :year
 
