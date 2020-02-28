@@ -30,7 +30,7 @@ GEM
     mini_portile2 (2.2.0)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
-    rake (12.0.0)
+    rake (13.0.1)
     roman-numerals (0.3.0)
     rspec (3.6.0)
       rspec-core (~> 3.6.0)
