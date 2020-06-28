@@ -29,6 +29,7 @@ automated. Let `ordodo` do the heavy lifting for you!
   - [2016/17](http://yakub.cz/ordo_2016/)
   - [2017/18](http://yakub.cz/ordo_2017/)
   - [2018/19](http://yakub.cz/ordo_2018/)
+  - [2019/20](http://yakub.cz/ordo_2019/)
 
 The current sample is a simple HTML page. Support for multiple
 output formats will be added later, with special focus
