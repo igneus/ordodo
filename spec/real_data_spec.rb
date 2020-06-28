@@ -32,7 +32,7 @@ describe 'handling of real examples' do
       expect(reduced.size).to eq 1
       celebration_titles = reduced.content.celebrations.collect &:title
       expect(celebration_titles)
-        .to eq ['Sobota 30. týdne v mezidobí', 'Sv. Martina de Porres, řeholníka']
+        .to eq ['Sobota 30. týdne v mezidobí', 'Sv. Martina de Porres, řeholníka', 'Sobotní památka Panny Marie']
     end
 
     it 'Christ Eternal Priest' do

@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'calendarium-romanum',
-    github: 'igneus/calendarium-romanum',
-    ref: 'a2d102f'
+gem 'calendarium-romanum'
 gem 'i18n'
 gem 'nokogiri'
 gem 'rubytree'

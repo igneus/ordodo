@@ -206,7 +206,9 @@ describe Ordodo::Config do
               .to eq([CR::Celebration.new(
                        'Panny Marie Karmelské',
                        CR::Ranks::MEMORIAL_OPTIONAL,
-                       CR::Colours::WHITE
+                       CR::Colours::WHITE,
+                       :bvm_mount_carmel,
+                       CR::AbstractDate.new(7, 16)
                      )])
           end
 
@@ -216,7 +218,9 @@ describe Ordodo::Config do
               .to eq([CR::Celebration.new(
                        'Sv. Prokopa, opata',
                        CR::Ranks::MEMORIAL_PROPER,
-                       CR::Colours::WHITE
+                       CR::Colours::WHITE,
+                       :procopius,
+                       CR::AbstractDate.new(7, 4)
                      )])
           end
         end
